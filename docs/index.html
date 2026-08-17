@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EvoSkill-GUI is a training-free framework for self-evolving GUI agent skills through reflection, revision, and reuse.">
+  <meta name="theme-color" content="#f7f8f5">
+  <title>EvoSkill-GUI | Reflect, Revise, Reuse</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+  <link rel="stylesheet" href="static/styles.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js" defer></script>
+  <script src="static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <a class="lab-mark" href="https://github.com/ZJU-REAL" target="_blank" rel="noreferrer" aria-label="ZJU REAL on GitHub">
+        <span class="lab-glyph" aria-hidden="true">R</span>
+        <span><strong>ZJU REAL</strong><small>Research Lab</small></span>
+      </a>
+
+      <div class="nav-links" data-nav-links>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#analysis">Analysis</a>
+        <a href="#cases">Cases</a>
+        <div class="research-menu">
+          <button class="research-trigger" type="button" aria-expanded="false" data-research-trigger>
+            More Research <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="research-list" data-research-list>
+            <a href="https://zju-real.github.io/UI-Zoomer/" target="_blank" rel="noreferrer">UI-Zoomer</a>
+            <a href="https://zju-real.github.io/CoVerRL/" target="_blank" rel="noreferrer">CoVerRL</a>
+            <a href="https://zju-real.github.io/Code-A1/" target="_blank" rel="noreferrer">Code-A1</a>
+            <a href="https://zju-real.github.io/GUI-G2" target="_blank" rel="noreferrer">GUI-G2</a>
+            <a href="https://zju-real.github.io/SpatialLadder" target="_blank" rel="noreferrer">SpatialLadder</a>
+            <a href="https://github.com/ZJU-REAL" target="_blank" rel="noreferrer">All projects <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <button class="nav-toggle icon-button" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="paper-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-copy reveal">
+        <h1 id="paper-title"><span>EvoSkill-GUI:</span> Reflect, Revise, Reuse: Training-Free Skill Evolution for GUI Agents</h1>
+        <div class="author-block">
+          <p class="author-list">
+            <a href="https://openreview.net/profile?id=~Bofan_Chen4" target="_blank" rel="noreferrer">Bofan Chen</a><sup>*</sup>,
+            <a href="https://openreview.net/profile?id=~Boxuan_Zhang13" target="_blank" rel="noreferrer">Boxuan Zhang</a><sup>*</sup>,
+            <a href="https://openreview.net/profile?id=~Fei_Tang4" target="_blank" rel="noreferrer">Fei Tang</a>,
+            <a href="https://openreview.net/profile?id=~Zhengxi_Lu1" target="_blank" rel="noreferrer">Zhengxi Lu</a>,
+            <a href="https://openreview.net/profile?id=~Yong_Du3" target="_blank" rel="noreferrer">Yong Du</a>,
+            <a href="https://openreview.net/profile?id=~Tongbo_Chen2" target="_blank" rel="noreferrer">Tongbo Chen</a>,
+            <a href="https://openreview.net/profile?id=~Weiming_Lu1" target="_blank" rel="noreferrer">Weiming Lu</a>,
+            <a href="https://openreview.net/profile?id=~Jun_Xiao1" target="_blank" rel="noreferrer">Jun Xiao</a>,
+            <a href="https://openreview.net/profile?id=~Yueting_Zhuang1" target="_blank" rel="noreferrer">Yueting Zhuang</a>,
+            <a href="https://openreview.net/profile?id=~Yongliang_Shen1" target="_blank" rel="noreferrer">Yongliang Shen</a><sup>&dagger;</sup>
+          </p>
+          <p class="affiliation">ZJU-REAL, Zhejiang University</p>
+          <p class="contribution-note"><sup>*</sup>Equal contribution, <sup>&dagger;</sup>Corresponding author &middot; Under review</p>
+        </div>
+        <div class="hero-actions" aria-label="Paper links">
+          <span class="button button-dark button-disabled" aria-disabled="true" title="arXiv link coming soon">
+            <i data-lucide="file-text" aria-hidden="true"></i> Paper <small>Coming soon</small>
+          </span>
+          <a class="button button-outline" href="https://github.com/ZJU-REAL/EvoSkill-GUI" target="_blank" rel="noreferrer">
+            <i data-lucide="github" aria-hidden="true"></i> Code
+          </a>
+          <a class="icon-button button-outline" href="#bibtex" aria-label="Jump to citation" title="Citation">
+            <i data-lucide="quote" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow-preview-band" aria-label="Animated reflect, revise, reuse preview">
+      <div class="hero-system reveal" data-delay="1" aria-label="Reflect, revise, reuse workflow preview">
+        <div class="system-label"><span>Live skill state</span><span class="system-id">S<sup>(i)</sup></span></div>
+        <div class="execution-rail">
+          <div class="rail-progress" aria-hidden="true"></div>
+          <article class="rail-node is-active">
+            <span class="node-index">01</span>
+            <i data-lucide="scan-search" aria-hidden="true"></i>
+            <h2>Reflect</h2>
+            <p>Diagnose the executed trajectory under strict information isolation.</p>
+          </article>
+          <article class="rail-node">
+            <span class="node-index">02</span>
+            <i data-lucide="file-pen-line" aria-hidden="true"></i>
+            <h2>Revise</h2>
+            <p>Edit only the responsible file through a restricted tool interface.</p>
+          </article>
+          <article class="rail-node">
+            <span class="node-index">03</span>
+            <i data-lucide="library" aria-hidden="true"></i>
+            <h2>Reuse</h2>
+            <p>Retrieve verified procedural knowledge for related future tasks.</p>
+          </article>
+        </div>
+        <div class="live-log" aria-live="polite">
+          <span class="log-prompt">skill://</span><span data-typewriter>plan.md updated: verify attachment before send</span><span class="caret" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact-strip" aria-label="Headline results">
+      <div class="impact-inner">
+        <div class="impact-item reveal"><span class="impact-value">+16.2</span><span class="impact-unit">pts</span><p>MobileWorld</p></div>
+        <div class="impact-item reveal" data-delay="1"><span class="impact-value">+6.0</span><span class="impact-unit">pts</span><p>AndroidWorld</p></div>
+        <div class="impact-item reveal" data-delay="2"><span class="impact-value">+10.5</span><span class="impact-unit">pts</span><p>OSWorld</p></div>
+        <div class="impact-note reveal" data-delay="3"><i data-lucide="sparkles" aria-hidden="true"></i><p><strong>One backbone. No training.</strong><br>Skills evolve directly from deployment-time feedback.</p></div>
+      </div>
+    </section>
+
+    <section class="section abstract-section" id="abstract" aria-labelledby="abstract-title">
+      <div class="section-shell abstract-layout">
+        <div class="section-heading reveal">
+          <p class="section-kicker">01 / Overview</p>
+          <h2 id="abstract-title">Skills should be living procedural knowledge.</h2>
+        </div>
+        <div class="abstract-copy reveal" data-delay="1">
+          <p class="lead">GUI agents operate in non-stationary environments where pop-ups, delayed loads, and relocated widgets routinely invalidate plans fixed before execution.</p>
+          <p>Existing skill-based agents largely treat skills as static artifacts. EvoSkill-GUI instead represents every skill as a structured, editable package and turns failed execution into supervision for improving that package. During rollout, the executor can revise local mismatches instantly. After failure, the same backbone acts as an isolated critic, diagnoses the trajectory, and guides targeted skill-file edits.</p>
+          <p>Across MobileWorld, AndroidWorld, and OSWorld, EvoSkill-GUI consistently improves general-purpose and GUI-specialized models without additional training. The evolved library continues to benefit related tasks instead of rebuilding procedural knowledge from scratch.</p>
+        </div>
+      </div>
+      <figure class="wide-figure reveal">
+        <img src="static/intro.png" alt="Comparison of static skill methods and EvoSkill-GUI across skill structure, reflection, revision, and retrieval." loading="lazy">
+        <figcaption>From static, monolithic documents to structured packages that evolve through use.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section method-section" id="method" aria-labelledby="method-title">
+      <div class="section-shell">
+        <div class="split-heading reveal">
+          <div>
+            <p class="section-kicker">02 / Method</p>
+            <h2 id="method-title">A closed loop from execution to reusable skill.</h2>
+          </div>
+          <p>EvoSkill-GUI alternates between in-rollout adaptation, information-isolated diagnosis, and targeted file revision. Successful packages return to a metadata-indexed skill library.</p>
+        </div>
+
+        <figure class="method-figure reveal" data-delay="1">
+          <div class="figure-toolbar"><span>System overview</span><a href="static/method.pdf" target="_blank" aria-label="Open method figure as PDF" title="Open figure"><i data-lucide="maximize-2" aria-hidden="true"></i></a></div>
+          <img src="static/method.png" alt="Full EvoSkill-GUI system pipeline from skill retrieval through execution, reflection, revision, and reuse." loading="lazy">
+        </figure>
+
+        <div class="process-grid" aria-label="Method stages">
+          <article class="process-step reveal">
+            <div class="step-top"><span>01</span><i data-lucide="mouse-pointer-click" aria-hidden="true"></i></div>
+            <h3>Execute + adapt</h3>
+            <p>The executor follows the current package and performs instant revisions when the observed interface contradicts the plan.</p>
+            <code>tau(i) = Phi(S(i), E)</code>
+          </article>
+          <article class="process-step reveal" data-delay="1">
+            <div class="step-top"><span>02</span><i data-lucide="shield-check" aria-hidden="true"></i></div>
+            <h3>Reflect in isolation</h3>
+            <p>The same model inspects only the instruction, observations, and actions: no hidden reasoning, skill body, or ground truth.</p>
+            <code>C<sub>critic</sub> &cap; {S, CoT, GT} = &empty;</code>
+          </article>
+          <article class="process-step reveal" data-delay="2">
+            <div class="step-top"><span>03</span><i data-lucide="git-commit-horizontal" aria-hidden="true"></i></div>
+            <h3>Revise precisely</h3>
+            <p>Structured critique identifies the failure step, direct cause, and a concrete edit to the responsible skill component.</p>
+            <code>S(i+1) ~ pi(S(i), c(i), tau(i))</code>
+          </article>
+          <article class="process-step reveal" data-delay="3">
+            <div class="step-top"><span>04</span><i data-lucide="refresh-cw" aria-hidden="true"></i></div>
+            <h3>Retrieve + reuse</h3>
+            <p>Metadata retrieval matches intent, app, platform, keywords, arguments, history, and verification status.</p>
+            <code>score(q, S) &ge; theta<sub>r</sub></code>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section package-section" id="package" aria-labelledby="package-title">
+      <div class="section-shell package-layout">
+        <div class="package-copy reveal">
+          <p class="section-kicker">Inside a skill package</p>
+          <h2 id="package-title">Six files. Six distinct responsibilities.</h2>
+          <p>A monolithic skill entangles planning, localization, and recovery. EvoSkill-GUI separates them so each failure updates only what broke.</p>
+          <div class="tool-line"><span>Restricted tools</span><code>read</code><code>write</code><code>append</code><code>list</code><code>search</code><code>create_failure</code></div>
+        </div>
+        <div class="file-stack reveal" data-delay="1" data-file-stack>
+          <button class="file-row is-selected" type="button" data-file="meta" aria-pressed="true"><i data-lucide="tags" aria-hidden="true"></i><span><strong>meta.json</strong><small>Retrieval metadata</small></span><em>D</em></button>
+          <button class="file-row" type="button" data-file="plan" aria-pressed="false"><i data-lucide="list-checks" aria-hidden="true"></i><span><strong>plan.md</strong><small>Executable procedure</small></span><em>P</em></button>
+          <button class="file-row" type="button" data-file="backup" aria-pressed="false"><i data-lucide="locate-fixed" aria-hidden="true"></i><span><strong>backup.md</strong><small>Localization fallbacks</small></span><em>B</em></button>
+          <button class="file-row" type="button" data-file="recover" aria-pressed="false"><i data-lucide="undo-2" aria-hidden="true"></i><span><strong>recover.md</strong><small>Failure recovery rules</small></span><em>C</em></button>
+          <button class="file-row" type="button" data-file="a11y" aria-pressed="false"><i data-lucide="accessibility" aria-hidden="true"></i><span><strong>a11y.py</strong><small>Accessibility utilities</small></span><em>A</em></button>
+          <button class="file-row" type="button" data-file="failures" aria-pressed="false"><i data-lucide="history" aria-hidden="true"></i><span><strong>failures/</strong><small>Evidence-backed cases</small></span><em>F</em></button>
+        </div>
+        <div class="file-preview reveal" data-delay="2" aria-live="polite">
+          <div class="preview-bar"><span data-preview-name>meta.json</span><span class="verified"><i data-lucide="circle-check" aria-hidden="true"></i> verified</span></div>
+          <pre><code data-preview-code>{
+  "intent": "send email with attachment",
+  "app": "Gmail",
+  "platform": "Android",
+  "keywords": ["compose", "attach", "send"],
+  "status": "verified"
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section results-section" id="results" aria-labelledby="results-title">
+      <div class="section-shell">
+        <div class="split-heading reveal">
+          <div>
+            <p class="section-kicker">03 / Results</p>
+            <h2 id="results-title">Consistent gains across mobile and desktop.</h2>
+          </div>
+          <p>All evaluations keep the package format and retrieval strategy fixed. Tasks receive up to 50 interaction steps and at most two post-failure revision rounds.</p>
+        </div>
+
+        <div class="benchmark-tabs reveal" role="tablist" aria-label="Benchmark result views">
+          <button class="tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="mobile-panel" id="mobile-tab" data-result-tab="mobile">MobileWorld</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="android-panel" id="android-tab" data-result-tab="android">AndroidWorld</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="os-panel" id="os-tab" data-result-tab="os">OSWorld</button>
+        </div>
+
+        <div class="result-panel is-active" id="mobile-panel" role="tabpanel" aria-labelledby="mobile-tab" data-result-panel="mobile">
+          <div class="result-summary">
+            <div><span class="result-label">Best absolute gain</span><strong>+16.2</strong><small>Qwen3.6-Plus</small></div>
+            <p>Every evaluated backbone improves on the GUI-only split, from general closed models to GUI-specialized open models.</p>
+          </div>
+          <div class="bar-chart" aria-label="MobileWorld success rates">
+            <div class="bar-group" style="--base:57.1;--ours:67.6"><span>Claude-Sonnet-4.6</span><div class="bars"><i class="base-bar"><b>57.1</b></i><i class="ours-bar"><b>67.6</b></i></div></div>
+            <div class="bar-group" style="--base:53.3;--ours:69.5"><span>Qwen3.6-Plus</span><div class="bars"><i class="base-bar"><b>53.3</b></i><i class="ours-bar"><b>69.5</b></i></div></div>
+            <div class="bar-group" style="--base:32.4;--ours:44.8"><span>Qwen3.6-35B-A3B</span><div class="bars"><i class="base-bar"><b>32.4</b></i><i class="ours-bar"><b>44.8</b></i></div></div>
+            <div class="bar-group" style="--base:29.5;--ours:37.1"><span>MAI-UI-8B</span><div class="bars"><i class="base-bar"><b>29.5</b></i><i class="ours-bar"><b>37.1</b></i></div></div>
+            <div class="chart-legend"><span><i class="legend-base"></i>Base</span><span><i class="legend-ours"></i>+ EvoSkill-GUI</span></div>
+          </div>
+        </div>
+
+        <div class="result-panel" id="android-panel" role="tabpanel" aria-labelledby="android-tab" data-result-panel="android" hidden>
+          <div class="result-summary">
+            <div><span class="result-label">Full reuse gain</span><strong>+6.0</strong><small>Seed 42 variants</small></div>
+            <p>Phase 1 constructs and evolves packages. In Phase 2, every task retrieves the evolved library built on related variants.</p>
+          </div>
+          <div class="phase-grid">
+            <article><span>Phase 1 &middot; seed 30</span><strong>70.7%</strong><p>37.9% reuse rate</p><em>68.1 base &rarr; +2.6</em></article>
+            <div class="phase-arrow"><i data-lucide="arrow-right" aria-hidden="true"></i><span>library evolves</span></div>
+            <article><span>Phase 2 &middot; seed 42</span><strong>61.2%</strong><p>100% reuse rate</p><em>55.2 base &rarr; +6.0</em></article>
+          </div>
+        </div>
+
+        <div class="result-panel" id="os-panel" role="tabpanel" aria-labelledby="os-tab" data-result-panel="os" hidden>
+          <div class="result-summary">
+            <div><span class="result-label">Desktop gain</span><strong>+10.5</strong><small>Qwen3-VL-8B</small></div>
+            <p>The same skill package design transfers to heterogeneous workflows across browsers, creative tools, office apps, email, media, and development environments.</p>
+          </div>
+          <div class="os-table-wrap">
+            <table>
+              <thead><tr><th>Backbone</th><th>Base</th><th>EvoSkill-GUI</th><th>Gain</th></tr></thead>
+              <tbody>
+                <tr><td>GUI-Owl-1.5-8B</td><td>46.7</td><td><strong>54.8</strong></td><td class="positive">+8.1</td></tr>
+                <tr><td>Qwen3-VL-8B-Instruct</td><td>23.8</td><td><strong>34.3</strong></td><td class="positive">+10.5</td></tr>
+              </tbody>
+            </table>
+            <p class="table-note">Largest application-level gain: <strong>+42.7</strong> on VLC with GUI-Owl-1.5-8B.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section analysis-section" id="analysis" aria-labelledby="analysis-title">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <p class="section-kicker">04 / What the evolution learns</p>
+          <h2 id="analysis-title">The gains accumulate, transfer, and cost less than repeated sampling.</h2>
+        </div>
+
+        <div class="analysis-grid">
+          <figure class="analysis-figure analysis-wide reveal">
+            <div class="figure-copy"><span>Across rounds</span><h3>Skills improve with repeated use.</h3><p>Most gains arrive within three rounds. Qwen3.6-Plus reaches 68.6% by Round 3 and 69.5% by Round 5.</p></div>
+            <img src="static/evolution.png" alt="Success rate improvements over three evolution rounds for multiple models on MobileWorld." loading="lazy">
+          </figure>
+          <article class="analysis-stat reveal" data-delay="1">
+            <span class="analysis-icon"><i data-lucide="badge-dollar-sign" aria-hidden="true"></i></span>
+            <p>Three-round EvoSkill-GUI</p>
+            <strong>94.75M</strong>
+            <small>tokens for 69.5% accuracy</small>
+            <div class="compare-line"><span>pass@3 baseline</span><b>103.00M / 62.8%</b></div>
+          </article>
+          <article class="analysis-stat reveal" data-delay="2">
+            <span class="analysis-icon"><i data-lucide="wrench" aria-hidden="true"></i></span>
+            <p>Initially failed executions recovered</p>
+            <strong>27 / 89</strong>
+            <small>30.3% overall recovery rate</small>
+            <div class="compare-line"><span>via reused skills</span><b>19 / 65 repaired</b></div>
+          </article>
+          <figure class="analysis-figure analysis-wide reveal">
+            <div class="figure-copy"><span>Across task streams</span><h3>The library grows into reusable infrastructure.</h3><p>On 116 + 116 AndroidWorld tasks, the library reaches 98 skills and a 56.1% reuse ratio while maintaining higher cumulative success.</p></div>
+            <img src="static/skill_library.png" alt="Growth, reuse ratio, and cumulative success of the EvoSkill-GUI library across AndroidWorld tasks." loading="lazy">
+          </figure>
+        </div>
+
+        <div class="ablation-block reveal">
+          <div class="ablation-copy"><span>Ablation</span><h3>Each design choice protects performance.</h3><p>Structured files support targeted edits; instant revision prevents local mismatches from cascading; information isolation keeps critique evidence-grounded.</p></div>
+          <div class="ablation-bars">
+            <div style="--score:69.52"><span>Full EvoSkill-GUI</span><i><b>69.52</b></i></div>
+            <div style="--score:66.67"><span>Single-file skill</span><i><b>66.67</b></i></div>
+            <div style="--score:62.86"><span>w/o instant revision</span><i><b>62.86</b></i></div>
+            <div style="--score:60.95"><span>w/o information isolation</span><i><b>60.95</b></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cases-section" id="cases" aria-labelledby="cases-title">
+      <div class="section-shell">
+        <div class="split-heading reveal">
+          <div>
+            <p class="section-kicker">05 / Case studies</p>
+            <h2 id="cases-title">A failure becomes the next successful procedure.</h2>
+          </div>
+          <p>Case studies show how a package changes after execution feedback: missing verification steps become explicit checks, and premature stopping becomes complete traversal.</p>
+        </div>
+
+        <div class="case-controls reveal" role="tablist" aria-label="Case studies">
+          <button class="case-tab is-active" type="button" role="tab" aria-selected="true" data-case-tab="email">Send interview email</button>
+          <button class="case-tab" type="button" role="tab" aria-selected="false" data-case-tab="cart">Check cart price</button>
+        </div>
+
+        <div class="case-panel is-active" data-case-panel="email">
+          <div class="case-story reveal">
+            <span>Revision learned</span>
+            <h3>Locate &rarr; verify &rarr; attach</h3>
+            <p>The failed skill stopped after finding the file. EvoSkill-GUI writes a verification checkpoint into <code>plan.md</code> so the executor confirms the attachment before sending.</p>
+          </div>
+          <div class="case-pair reveal" data-delay="1">
+            <figure class="case-fail"><span><i data-lucide="x" aria-hidden="true"></i> Failed rollout</span><img src="static/case1_fail.png" alt="Failed email task execution before skill revision." loading="lazy"></figure>
+            <figure class="case-success"><span><i data-lucide="check" aria-hidden="true"></i> After revision</span><img src="static/case1_succ.png" alt="Successful email task execution after EvoSkill-GUI skill revision." loading="lazy"></figure>
+          </div>
+        </div>
+
+        <div class="case-panel" data-case-panel="cart" hidden>
+          <div class="case-story reveal is-visible">
+            <span>Revision learned</span>
+            <h3>Traverse &rarr; verify completion &rarr; report</h3>
+            <p>The original procedure reported too early. The revised package adds an explicit completeness check before calculating and returning the top-three item total.</p>
+          </div>
+          <div class="case-pair reveal is-visible">
+            <figure class="case-fail"><span><i data-lucide="x" aria-hidden="true"></i> Failed rollout</span><img src="static/case2_fail.png" alt="Failed cart total task before skill revision." loading="lazy"></figure>
+            <figure class="case-success"><span><i data-lucide="check" aria-hidden="true"></i> After revision</span><img src="static/case2_succ.png" alt="Successful cart total task after EvoSkill-GUI skill revision." loading="lazy"></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section citation-section" id="bibtex" aria-labelledby="bibtex-title">
+      <div class="section-shell citation-layout">
+        <div class="citation-copy reveal">
+          <p class="section-kicker">06 / Citation</p>
+          <h2 id="bibtex-title">Build on skills that keep learning.</h2>
+          <p>The repository will host code, prompts, evaluation scripts, and evolving skill packages upon release.</p>
+          <a class="button button-light" href="https://github.com/ZJU-REAL/EvoSkill-GUI" target="_blank" rel="noreferrer"><i data-lucide="github" aria-hidden="true"></i> View repository</a>
+        </div>
+        <div class="bibtex-box reveal" data-delay="1">
+          <div class="bibtex-bar"><span>BibTeX</span></div>
+          <pre aria-label="BibTeX placeholder"><code id="bibtex-code"></code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><a class="lab-mark footer-mark" href="https://github.com/ZJU-REAL" target="_blank" rel="noreferrer"><span class="lab-glyph" aria-hidden="true">R</span><span><strong>ZJU REAL</strong><small>Zhejiang University</small></span></a></div>
+    <p>Reflect. Revise. Reuse.</p>
+    <a class="icon-button" href="#main" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up" aria-hidden="true"></i></a>
+  </footer>
+</body>
+</html>
