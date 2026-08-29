@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobileWorld: Benchmarking Autonomous Mobile Agents</title>
+    <meta name="description"
+        content="MobileWorld: Benchmarking Autonomous Mobile Agents in Agent-User Interactive and MCP-Augmented Environments">
+    <meta name="keywords" content="Mobile Agent, GUI Agent, Android, Benchmark, MCP">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Academicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" id="main-navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-title" href="#">
+                <strong>MobileWorld</strong>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" id="navbar-burger">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#leaderboard">Leaderboard</a>
+                <a class="navbar-item" href="#overview">Overview</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a href="https://arxiv.org/abs/2512.19432" class="button is-small is-dark" target="_blank">
+                            <span class="icon"><i class="ai ai-arxiv"></i></span>
+                            <span>Paper</span>
+                        </a>
+                        <a href="https://huggingface.co/datasets/Tongyi-MAI/MobileWorld" class="button is-small is-dark"
+                            target="_blank">
+                            <span class="icon"><img
+                                    src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="HF"
+                                    style="height: 14px; opacity: 0.7;"></span>
+                            <span>Dataset</span>
+                        </a>
+                        <a href="https://github.com/Tongyi-MAI/MobileWorld" class="button is-small is-dark"
+                            target="_blank">
+                            <span class="icon"><i class="fab fa-github"></i></span>
+                            <span>Code</span>
+                        </a>
+                        <div class="dropdown is-hoverable is-right" id="cite-dropdown">
+                            <div class="dropdown-trigger">
+                                <button class="button is-small is-dark" aria-haspopup="true" aria-controls="cite-menu">
+                                    <span class="icon"><i class="fas fa-quote-right"></i></span>
+                                    <span>Cite</span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="cite-menu" role="menu">
+                                <div class="dropdown-content cite-dropdown-content">
+                                    <div class="dropdown-item">
+                                        <p class="is-size-7 has-text-weight-semibold mb-2">BibTeX</p>
+                                        <pre class="cite-bibtex"><code>@inproceedings{kong2025mobileworld,
+      title={MobileWorld: Benchmarking Autonomous Mobile Agents in Agent-User Interactive, and MCP-Augmented Environments},
+      author={Quyu Kong and Xu Zhang and Zhenyu Yang and Nolan Gao and Chen Liu and Panrong Tong and Chenglin Cai and Hanzhang Zhou and Jianan Zhang and Liangyu Chen and Zhidan Liu and Steven Hoi and Yue Wang},
+      booktitle={Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL)},
+      year={2026},
+      url={https://arxiv.org/abs/2512.19432},
+}</code></pre>
+                                        <button class="button is-small is-fullwidth mt-2" id="copy-cite-btn">
+                                            <span class="icon"><i class="fas fa-copy"></i></span>
+                                            <span>Copy</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-2 publication-title">
+                            MobileWorld: Benchmarking Autonomous Mobile Agents in Agent-User Interactive and
+                            MCP-Augmented Environments
+                        </h1>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><a
+                                    href="https://scholar.google.com/citations?hl=en&user=0EXa6lkAAAAJ"
+                                    target="_blank">Quyu Kong</a><sup>*,1</sup>,</span>
+                            <span class="author-block"><a
+                                    href="https://scholar.google.com/citations?user=bqXdMMMAAAAJ&hl=en"
+                                    target="_blank">Xu Zhang</a><sup>*,1</sup>,</span>
+                            <span class="author-block">Zhenyu Yang<sup>2</sup>,</span>
+                            <span class="author-block">Nolan Gao<sup>3</sup>,</span>
+                            <span class="author-block"><a href="https://www.linkedin.com/in/chen-liu-6a8112262/"
+                                    target="_blank">Chen Liu</a><sup>1</sup>,</span>
+                            <span class="author-block">Panrong Tong<sup>1</sup>,</span>
+                            <span class="author-block">Chenglin Cai<sup>1</sup>,</span>
+                            <span class="author-block"><a
+                                    href="https://scholar.google.com/citations?user=4VpiXesAAAAJ&hl=en"
+                                    target="_blank">Hanzhang Zhou</a><sup>1</sup>,</span>
+                            <span class="author-block">Jianan Zhang<sup>1</sup>,</span>
+                            <span class="author-block"><a
+                                    href="https://scholar.google.com/citations?user=9UqxQBEAAAAJ&hl=en"
+                                    target="_blank">Liangyu Chen</a><sup>1</sup>,</span>
+                            <span class="author-block"><a
+                                    href="https://scholar.google.com/citations?hl=en&user=wCzfY2QAAAAJ"
+                                    target="_blank">Zhidan Liu</a><sup>2</sup>,</span>
+                            <span class="author-block"><a
+                                    href="https://scholar.google.com/citations?user=JoLjflYAAAAJ&hl=en"
+                                    target="_blank">Steven HOI</a><sup>1</sup>,</span>
+                            <span class="author-block"><a href="https://yuewang-cuhk.github.io/" target="_blank">Yue
+                                    Wang</a><sup>1,&#9993;</sup></span>
+                        </div>
+
+                        <div class="is-size-6 publication-authors">
+                            <span class="author-block"><sup>1</sup>Tongyi Lab, Alibaba Group</span>
+                            <span class="author-block"><sup>2</sup>HKUST (GZ)</span>
+                            <span class="author-block"><sup>3</sup>University of Florida</span>
+                            <br>
+                            <span class="author-block"><sup>*</sup>Equal contribution</span>
+                            <span class="author-block email-block"><sup>&#9993;</sup> yue.w@alibaba-inc.com</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="column is-full">
+                    <div class="banner">
+                        <video autoplay loop muted preload="auto" controls id="banner-video"
+                            poster="assets/banner_poster.jpg">
+                            <source src="assets/banner_animated.mp4" type="video/mp4">
+                        </video>
+                        <script>
+                            // Start playing as soon as enough data is buffered
+                            const video = document.getElementById('banner-video');
+                            video.addEventListener('canplay', () => video.play());
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <main class="container is-max-desktop">
+        <!-- Leaderboard -->
+        <section id="leaderboard" class="section">
+            <h2 class="title is-3">Leaderboard</h2>
+            <p class="lb-desc">Success rate (%) on MobileWorld, weighted by task counts across GUI-Only (117),
+                User-Interaction (44), and MCP (40) tasks. All results evaluated with max steps&nbsp;=&nbsp;50. <a
+                    href="#" id="submit-results-link">Submit your results&nbsp;&rarr;</a></p>
+
+            <!-- Filters -->
+            <div class="lb-filters">
+                <div class="lb-filter-group">
+                    <span class="lb-filter-label">Type</span>
+                    <label class="lb-chip"><input type="checkbox" id="filter-type-agentic"
+                            checked><span>Agentic</span></label>
+                    <label class="lb-chip"><input type="checkbox" id="filter-type-general"
+                            checked><span>General</span></label>
+                    <label class="lb-chip"><input type="checkbox" id="filter-type-specialized"
+                            checked><span>Specialized</span></label>
+                </div>
+                <span class="lb-filter-sep"></span>
+                <div class="lb-filter-group">
+                    <span class="lb-filter-label">Tasks</span>
+                    <label class="lb-chip"><input type="checkbox" id="filter-gui-only"
+                            checked><span>GUI-Only</span></label>
+                    <label class="lb-chip"><input type="checkbox" id="filter-user-int"
+                            checked><span>User-Int.</span></label>
+                    <label class="lb-chip"><input type="checkbox" id="filter-mcp" checked><span>MCP</span></label>
+                </div>
+                <button class="lb-clear" id="clear-filters">Reset</button>
+            </div>
+
+            <!-- Leaderboard Table -->
+            <div class="table-container osworld-table-container">
+                <table class="table is-fullwidth is-hoverable osworld-leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th style="width:42px;">#</th>
+                            <th style="width:80px;">Type</th>
+                            <th>Model</th>
+                            <th id="th-overall" class="has-text-centered sortable-header" data-sort="overall">
+                                Overall <i class="fas fa-sort sort-icon"></i>
+                            </th>
+                            <th id="th-gui-only" class="has-text-centered sortable-header" data-sort="gui_only">
+                                GUI-Only <i class="fas fa-sort sort-icon"></i>
+                            </th>
+                            <th id="th-user-int" class="has-text-centered sortable-header" data-sort="user_int">
+                                User-Int. <i class="fas fa-sort sort-icon"></i>
+                            </th>
+                            <th id="th-mcp" class="has-text-centered sortable-header" data-sort="mcp">
+                                MCP <i class="fas fa-sort sort-icon"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <!-- Loaded from leaderboard.json -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Overview -->
+        <section id="overview" class="section">
+            <h2 class="title is-3">Overview</h2>
+
+            <div class="content has-text-justified">
+                <p><strong>MobileWorld</strong> is a substantially more challenging mobile-use benchmark designed to
+                    better
+                    reflect real-world mobile usage. It comprises <strong>201 tasks</strong> across <strong>20
+                        applications</strong>, featuring long-horizon, cross-app tasks, and novel task categories
+                    including
+                    agent-user interaction and MCP-augmented tasks.</p>
+
+                <p>The difficulty of MobileWorld is twofold:</p>
+
+                <p><strong>Long-horizon, cross-application tasks.</strong> MobileWorld tasks require on average 27.8
+                    completion steps, nearly twice as many as 14.3 steps required in AndroidWorld. Moreover, 62.2% of
+                    tasks
+                    involve cross-application workflows compared to only 9.5% in AndroidWorld.</p>
+
+                <p><strong>Novel task categories.</strong> MobileWorld extends beyond standard GUI manipulation by
+                    introducing (1) agent-user interaction tasks (22.4%) that evaluate an agent's ability to handle
+                    ambiguous instructions through collaborative dialogue, and (2) MCP-augmented tasks (19.9%) that
+                    require
+                    hybrid-usage of GUI navigation and external tool invocations via the Model Context Protocol.</p>
+            </div>
+
+            <figure class="image mt-4">
+                <img src="assets/compare_to_aw.jpg" alt="Comparison with AndroidWorld">
+                <figcaption class="has-text-centered mt-2" style="font-size: 0.9rem; color: #666;">
+                    <strong>Figure:</strong> Comparison between AndroidWorld and MobileWorld. MobileWorld features
+                    harder tasks
+                    with more steps, more cross-app workflows, and achieves lower SOTA accuracy, demonstrating its
+                    increased
+                    difficulty.
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- Benchmark Comparison -->
+        <section class="section">
+            <h2 class="title is-4">Benchmark Comparison</h2>
+            <div class="content has-text-justified">
+                <p>Comparison of online Mobile GUI Agent Benchmarks. MobileWorld uniquely enables deterministic
+                    evaluation
+                    even for applications requiring backends (e.g., messaging) by utilizing self-hosted environments. We
+                    also introduce novel task paradigms: agent-user interaction and Model Context Protocol (MCP)
+                    augmentation.</p>
+            </div>
+
+            <div class="table-container">
+                <table class="table is-fullwidth is-striped is-hoverable comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Benchmark</th>
+                            <th class="has-text-centered">#Apps</th>
+                            <th class="has-text-centered">#Tasks</th>
+                            <th class="has-text-centered">Agent-User Int.</th>
+                            <th class="has-text-centered">MCP-Aug.</th>
+                            <th class="has-text-centered">Backend-Req. Apps</th>
+                            <th class="has-text-centered">Deterministic Eval.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AndroidArena</td>
+                            <td class="has-text-centered">16</td>
+                            <td class="has-text-centered">221</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                        </tr>
+                        <tr>
+                            <td>A3</td>
+                            <td class="has-text-centered">20</td>
+                            <td class="has-text-centered">201</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Pro-Bench</td>
+                            <td class="has-text-centered">34</td>
+                            <td class="has-text-centered">200</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                        </tr>
+                        <tr>
+                            <td>AndroidDaily</td>
+                            <td class="has-text-centered">48</td>
+                            <td class="has-text-centered">235</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                        </tr>
+                        <tr>
+                            <td>SPA-Bench</td>
+                            <td class="has-text-centered">66</td>
+                            <td class="has-text-centered">340</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                        </tr>
+                        <tr class="separator">
+                            <td colspan="7"></td>
+                        </tr>
+                        <tr>
+                            <td>MobileAgentBench</td>
+                            <td class="has-text-centered">10</td>
+                            <td class="has-text-centered">100</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>AndroidLab</td>
+                            <td class="has-text-centered">9</td>
+                            <td class="has-text-centered">138</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>AndroidWorld</td>
+                            <td class="has-text-centered">20</td>
+                            <td class="has-text-centered">116</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered no-mark">✗</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                        </tr>
+                        <tr class="separator">
+                            <td colspan="7"></td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>MobileWorld (Ours)</strong></td>
+                            <td class="has-text-centered"><strong>20</strong></td>
+                            <td class="has-text-centered"><strong>201</strong></td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                            <td class="has-text-centered yes-mark">✓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Task Examples -->
+        <section class="section">
+            <h2 class="title is-4">Task Examples</h2>
+
+            <div class="content has-text-justified">
+                <p>Beyond traditional GUI-only tasks, MobileWorld includes <strong>agent-user interaction tasks</strong>
+                    and
+                    <strong>MCP-augmented tasks</strong>, each with distinct deterministic evaluation strategies.
+                </p>
+
+                <p><strong>Left:</strong> An example of an agent-user interaction task, in which the agent must
+                    proactively
+                    request clarification from a simulated user when encountering incomplete information. A
+                    GPT-4.1-based
+                    simulated user agent is then triggered to provide the requested information, which is embedded in
+                    its
+                    system prompt. Task completion is verified through the application's callback cache.</p>
+
+                <p><strong>Right:</strong> An example of an MCP-augmented task, where the agent is initialized with a
+                    list
+                    of GitHub MCP tools and selects the appropriate tool to retrieve README content from a GitHub
+                    repository
+                    before completing the task via GUI operations. Task completion is verified through backend database
+                    inspection.</p>
+            </div>
+
+            <figure class="image mt-4">
+                <img src="assets/example.jpg" alt="Task Examples: Agent-User Interaction and MCP-Augmented Tasks">
+                <figcaption class="has-text-centered mt-2" style="font-size: 0.9rem; color: #666;">
+                    <strong>Figure:</strong> Examples of agent-user interaction tasks (left) and MCP-augmented tasks
+                    (right),
+                    demonstrating the novel task categories in MobileWorld beyond traditional GUI manipulation.
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- Data Statistics -->
+        <section class="section">
+            <h2 class="title is-4">Data Statistics</h2>
+
+            <div class="content has-text-justified">
+                <p>We summarize key statistics of MobileWorld, highlighting four core dimensions:</p>
+
+                <div class="content">
+                    <ol>
+                        <li><strong>Diverse domains:</strong> Tasks span communication, productivity, and navigation.
+                            Approximately 95% of tasks involve third-party applications, aligning with authentic mobile
+                            usage
+                            patterns and ensuring real-world relevance.</li>
+                        <li><strong>Cross-app complexity:</strong> 62.2% of tasks require coordination between multiple
+                            apps,
+                            and 12.4% involve three or more.</li>
+                        <li><strong>Novel task categories:</strong> Agent-user interaction tasks and MCP-augmented tasks
+                            account
+                            for 42.3% of the dataset. These tasks go beyond pure GUI navigation by requiring dynamic
+                            user
+                            engagement and external tool use.</li>
+                        <li><strong>Rigorous verification:</strong> Multiple verification methods assess task success:
+                            47.3% of
+                            tasks rely on self-hosted database verification, and 36.8% use local storage inspection,
+                            highlighting the importance of apps with fully controlled backends.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <figure class="image">
+                <img src="assets/key_stats.png" alt="Task distribution across scenarios">
+            </figure>
+        </section>
+
+        <!-- System Architecture -->
+        <section class="section">
+            <h2 class="title is-4">System Architecture</h2>
+
+            <div class="content has-text-justified">
+                <p>The system architecture of MobileWorld consists of two main components.
+                    <strong>Left:</strong> the host machine is where GUI agents receive task instructions and optionally
+                    interact with users for clarification, then choose between GUI actions or MCP tool calls to complete
+                    tasks. <strong>Right:</strong> the docker environment contains an isolated Android ecosystem with
+                    emulators, self-hosted app backends, and an evaluator that verifies task completion through text
+                    matching, backend database, local storage, and app callbacks.
+                </p>
+            </div>
+
+            <figure class="image">
+                <img src="assets/fig_system_architecture.png" alt="System Architecture of MobileWorld">
+            </figure>
+        </section>
+
+        <!-- Acknowledgements -->
+        <section class="section">
+            <h2 class="title is-3">Acknowledgements</h2>
+            <div class="content has-text-justified">
+                <p>We thank <a href="https://github.com/google-research/android_world">Android World</a> and <a
+                        href="https://github.com/THUDM/Android-Lab">Android-Lab</a> for their open source contributions.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detail Modal -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-background"></div>
+        <div class="dm" role="dialog">
+            <button class="dm-close" aria-label="close" id="detail-modal-close">&times;</button>
+            <div class="dm-header" id="detail-modal-header"></div>
+            <div class="dm-body" id="detail-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Trajectory Viewer Modal -->
+    <div class="modal" id="traj-modal">
+        <div class="modal-background"></div>
+        <div class="traj-panel" role="dialog">
+            <button class="dm-close" aria-label="close" id="traj-modal-close">&times;</button>
+            <div class="traj-header">
+                <h2 class="traj-title" id="traj-model-name"></h2>
+                <div class="traj-controls">
+                    <div class="lb-select-wrap">
+                        <select id="traj-task-select"></select>
+                    </div>
+                    <span class="traj-result" id="traj-result-badge"></span>
+                    <button type="button" class="traj-expand-all" id="traj-expand-all" style="display:none">Expand all</button>
+                </div>
+            </div>
+            <div class="traj-body" id="traj-body">
+                <div class="traj-loading" id="traj-loading">
+                    <div><i class="fas fa-spinner fa-spin"></i> <span id="traj-loading-text">Loading
+                            trajectories&hellip;</span></div>
+                    <div class="traj-progress-wrap" id="traj-progress-wrap" style="display:none">
+                        <div class="traj-progress-bar" id="traj-progress-bar"></div>
+                    </div>
+                </div>
+                <div class="traj-steps" id="traj-steps"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submission Instructions Modal -->
+    <div class="modal" id="submit-modal">
+        <div class="modal-background"></div>
+        <div class="dm submit-dm" role="dialog" aria-labelledby="submit-modal-title">
+            <button class="dm-close" aria-label="close" id="submit-modal-close">&times;</button>
+            <div class="submit-dm-header">
+                <h2 class="dm-title" id="submit-modal-title">Submit Your Results</h2>
+                <p class="submit-intro">To appear on the MobileWorld leaderboard, complete the steps below.</p>
+            </div>
+            <div class="submit-dm-body">
+                <div class="submit-step">
+                    <div class="submit-step-num">1</div>
+                    <div class="submit-step-body">
+                        <strong>Run evaluation</strong>
+                        <pre><code>uv run mw eval --agent &lt;your_agent_module&gt; --tasks all</code></pre>
+                        <p>Trajectory logs are written to <code>traj_logs/&lt;run-name&gt;/</code>.</p>
+                    </div>
+                </div>
+                <div class="submit-step">
+                    <div class="submit-step-num">2</div>
+                    <div class="submit-step-body">
+                        <strong>Bundle trajectories with <code>bundle_trajs.py</code></strong>
+                        <pre><code>python site/bundle_trajs.py traj_logs/&lt;run-name&gt;/ --with-screenshots</code></pre>
+                        <p>Produces <code>site/trajs/&lt;run-name&gt;.json.gz</code> and <code>.mp4</code>.</p>
+                    </div>
+                </div>
+                <div class="submit-step">
+                    <div class="submit-step-num">3</div>
+                    <div class="submit-step-body">
+                        <strong>Send your results</strong>
+                        <p>Email the files below to <a
+                                href="mailto:kongquyu.kqy@alibaba-inc.com">kongquyu.kqy@alibaba-inc.com</a> along
+                            with your model / system name and any paper or report links.</p>
+                        <ul>
+                            <li><code>&lt;run-name&gt;.json.gz</code></li>
+                            <li><code>&lt;run-name&gt;.mp4</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>MobileWorld Team</strong> &middot;
+                <a href="https://github.com/Tongyi-MAI/MobileWorld">GitHub</a> &middot;
+                <a href="https://github.com/Tongyi-MAI/MobileWorld/issues">Issues</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize syntax highlighting
+        hljs.highlightAll();
+
+        // Navbar burger toggle + scroll detection
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurger = document.getElementById('navbar-burger');
+            const $navbarMenu = document.getElementById('navbar-menu');
+            const $navbar = document.getElementById('main-navbar');
+
+            if ($navbarBurger) {
+                $navbarBurger.addEventListener('click', () => {
+                    $navbarBurger.classList.toggle('is-active');
+                    $navbarMenu.classList.toggle('is-active');
+                });
+            }
+
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        $navbar.classList.toggle('is-scrolled', window.scrollY > 10);
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+        });
+
+        // Copy code function
+        function copyCode(btn) {
+            const code = btn.parentElement.querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<span class="icon is-small"><i class="fas fa-check"></i></span><span>Copied!</span>';
+                btn.classList.add('is-success');
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('is-success');
+                }, 2000);
+            });
+        }
+
+        // Copy cite button
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyCiteBtn = document.getElementById('copy-cite-btn');
+            if (copyCiteBtn) {
+                copyCiteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const bibtex = copyCiteBtn.closest('.dropdown-item').querySelector('code').textContent;
+                    navigator.clipboard.writeText(bibtex).then(() => {
+                        const originalHTML = copyCiteBtn.innerHTML;
+                        copyCiteBtn.innerHTML = '<span class="icon"><i class="fas fa-check"></i></span><span>Copied!</span>';
+                        copyCiteBtn.classList.add('is-success');
+                        setTimeout(() => {
+                            copyCiteBtn.innerHTML = originalHTML;
+                            copyCiteBtn.classList.remove('is-success');
+                        }, 2000);
+                    });
+                });
+            }
+        });
+
+        // Leaderboard functionality
+        document.addEventListener('DOMContentLoaded', async function () {
+            const tbody = document.getElementById('leaderboard-body');
+            const filterTypeAgentic = document.getElementById('filter-type-agentic');
+            const filterTypeGeneral = document.getElementById('filter-type-general');
+            const filterTypeSpecialized = document.getElementById('filter-type-specialized');
+            // const filterSteps = document.getElementById('filter-steps');  // Max Steps filter hidden
+            const filterGuiOnly = document.getElementById('filter-gui-only');
+            const filterUserInt = document.getElementById('filter-user-int');
+            const filterMcp = document.getElementById('filter-mcp');
+            const clearFiltersBtn = document.getElementById('clear-filters');
+
+            // Visual styling per category (sourced from leaderboard.json `category`).
+            const CATEGORY_BADGE_CLASS = {
+                'Agentic': 'tag is-info is-light',
+                'General': 'tag is-link is-light',
+                'Specialized': 'tag is-warning is-light',
+            };
+
+            let leaderboardData = [];
+            let filteredData = [];
+            let currentSort = { key: 'overall', dir: 'desc' };
+            let taskCounts = { 'GUI-Only': 0, 'User-Int.': 0, 'MCP': 0, 'Total': 0 };
+
+            // Load data from JSON
+            try {
+                const response = await fetch('leaderboard.json');
+                const data = await response.json();
+                leaderboardData = data.results;
+                taskCounts = data.task_counts || taskCounts;
+                filteredData = [...leaderboardData];
+                updateCheckboxStates();
+                updateTableHeader();
+                renderTable();
+            } catch (error) {
+                tbody.innerHTML = '<tr><td colspan="7" class="has-text-centered">Failed to load leaderboard data.</td></tr>';
+                console.error('Error loading leaderboard:', error);
+            }
+
+            // Sortable header click handler
+            document.querySelectorAll('.sortable-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const sortKey = header.dataset.sort;
+                    if (currentSort.key === sortKey) {
+                        currentSort.dir = currentSort.dir === 'desc' ? 'asc' : 'desc';
+                    } else {
+                        currentSort.key = sortKey;
+                        currentSort.dir = 'desc';
+                    }
+                    updateSortIcons();
+                    renderTable();
+                });
+            });
+
+            function updateSortIcons() {
+                document.querySelectorAll('.sortable-header').forEach(header => {
+                    const icon = header.querySelector('.sort-icon');
+                    if (header.dataset.sort === currentSort.key) {
+                        icon.className = currentSort.dir === 'desc' ? 'fas fa-sort-down sort-icon active' : 'fas fa-sort-up sort-icon active';
+                    } else {
+                        icon.className = 'fas fa-sort sort-icon';
+                    }
+                });
+            }
+
+            // Filter handlers
+            filterTypeAgentic.addEventListener('change', handleTypeChange);
+            filterTypeGeneral.addEventListener('change', handleTypeChange);
+            filterTypeSpecialized.addEventListener('change', handleTypeChange);
+            // filterSteps.addEventListener('change', applyFilters);  // Max Steps filter hidden
+            filterGuiOnly.addEventListener('change', handleCategoryChange);
+            filterUserInt.addEventListener('change', handleCategoryChange);
+            filterMcp.addEventListener('change', handleCategoryChange);
+            clearFiltersBtn.addEventListener('click', () => {
+                filterTypeAgentic.checked = true;
+                filterTypeGeneral.checked = true;
+                filterTypeSpecialized.checked = true;
+                // filterSteps.value = 'all';  // Max Steps filter hidden
+                filterGuiOnly.checked = true;
+                filterUserInt.checked = true;
+                filterMcp.checked = true;
+                currentSort = { key: 'overall', dir: 'desc' };
+                updateSortIcons();
+                updateCheckboxStates();
+                applyFilters();
+            });
+
+            function handleTypeChange() {
+                updateCheckboxStates();
+                applyFilters();
+            }
+
+            // Handle category checkbox changes
+            function handleCategoryChange() {
+                updateCheckboxStates();
+                const checkedCount = [filterGuiOnly.checked, filterUserInt.checked, filterMcp.checked].filter(Boolean).length;
+
+                // Reset sort to overall if current sort column is being hidden
+                if ((currentSort.key === 'gui_only' && !filterGuiOnly.checked) ||
+                    (currentSort.key === 'user_int' && !filterUserInt.checked) ||
+                    (currentSort.key === 'mcp' && !filterMcp.checked)) {
+                    currentSort = { key: 'overall', dir: 'desc' };
+                    updateSortIcons();
+                }
+                // If only one category selected, switch to that category
+                if (checkedCount === 1) {
+                    if (filterGuiOnly.checked) currentSort.key = 'gui_only';
+                    else if (filterUserInt.checked) currentSort.key = 'user_int';
+                    else if (filterMcp.checked) currentSort.key = 'mcp';
+                    updateSortIcons();
+                }
+                // If multiple categories selected and currently sorting by a single category column, switch to overall
+                if (checkedCount > 1 && ['gui_only', 'user_int', 'mcp'].includes(currentSort.key)) {
+                    currentSort = { key: 'overall', dir: 'desc' };
+                    updateSortIcons();
+                }
+                applyFilters();
+            }
+
+            // Update checkbox disabled states - prevent deselecting last one
+            function updateCheckboxStates() {
+                const taskCheckedCount = [filterGuiOnly.checked, filterUserInt.checked, filterMcp.checked].filter(Boolean).length;
+                filterGuiOnly.disabled = taskCheckedCount === 1 && filterGuiOnly.checked;
+                filterUserInt.disabled = taskCheckedCount === 1 && filterUserInt.checked;
+                filterMcp.disabled = taskCheckedCount === 1 && filterMcp.checked;
+
+                const typeCheckedCount = [filterTypeAgentic.checked, filterTypeGeneral.checked, filterTypeSpecialized.checked].filter(Boolean).length;
+                filterTypeAgentic.disabled = typeCheckedCount === 1 && filterTypeAgentic.checked;
+                filterTypeGeneral.disabled = typeCheckedCount === 1 && filterTypeGeneral.checked;
+                filterTypeSpecialized.disabled = typeCheckedCount === 1 && filterTypeSpecialized.checked;
+            }
+
+            // Update table header with task counts
+            function updateTableHeader() {
+                const thOverall = document.getElementById('th-overall');
+                const thGuiOnly = document.getElementById('th-gui-only');
+                const thUserInt = document.getElementById('th-user-int');
+                const thMcp = document.getElementById('th-mcp');
+
+                // Calculate dynamic overall task count based on selected filters
+                let overallCount = 0;
+                if (filterGuiOnly.checked) overallCount += taskCounts['GUI-Only'];
+                if (filterUserInt.checked) overallCount += taskCounts['User-Int.'];
+                if (filterMcp.checked) overallCount += taskCounts['MCP'];
+
+                thOverall.innerHTML = `Overall <span class="task-count">(${overallCount})</span> <i class="fas fa-sort sort-icon"></i>`;
+                thGuiOnly.innerHTML = `GUI-Only <span class="task-count">(${taskCounts['GUI-Only']})</span> <i class="fas fa-sort sort-icon"></i>`;
+                thUserInt.innerHTML = `User-Int. <span class="task-count">(${taskCounts['User-Int.']})</span> <i class="fas fa-sort sort-icon"></i>`;
+                thMcp.innerHTML = `MCP <span class="task-count">(${taskCounts['MCP']})</span> <i class="fas fa-sort sort-icon"></i>`;
+            }
+
+            // Update column visibility in table header
+            function updateColumnVisibility() {
+                const checkedCount = [filterGuiOnly.checked, filterUserInt.checked, filterMcp.checked].filter(Boolean).length;
+                const showOverall = checkedCount > 1;
+
+                document.getElementById('th-overall').style.display = showOverall ? '' : 'none';
+                document.getElementById('th-gui-only').style.display = filterGuiOnly.checked ? '' : 'none';
+                document.getElementById('th-user-int').style.display = filterUserInt.checked ? '' : 'none';
+                document.getElementById('th-mcp').style.display = filterMcp.checked ? '' : 'none';
+            }
+
+            // Calculate weighted score based on selected task categories and task counts
+            // Treat null values as 0 SR
+            function getFilteredScore(row) {
+                const includeGui = filterGuiOnly.checked;
+                const includeUser = filterUserInt.checked;
+                const includeMcp = filterMcp.checked;
+
+                let weightedSum = 0;
+                let totalWeight = 0;
+
+                if (includeGui) {
+                    const weight = taskCounts['GUI-Only'];
+                    weightedSum += (row.gui_only ?? 0) * weight;
+                    totalWeight += weight;
+                }
+                if (includeUser) {
+                    const weight = taskCounts['User-Int.'];
+                    weightedSum += (row.user_int ?? 0) * weight;
+                    totalWeight += weight;
+                }
+                if (includeMcp) {
+                    const weight = taskCounts['MCP'];
+                    weightedSum += (row.mcp ?? 0) * weight;
+                    totalWeight += weight;
+                }
+
+                if (totalWeight === 0) return null;
+                return weightedSum / totalWeight;
+            }
+
+            function applyFilters() {
+                const includeGui = filterGuiOnly.checked;
+                const includeUser = filterUserInt.checked;
+                const includeMcp = filterMcp.checked;
+                const typeAllowed = {
+                    'Agentic': filterTypeAgentic.checked,
+                    'General': filterTypeGeneral.checked,
+                    'Specialized': filterTypeSpecialized.checked,
+                };
+
+                filteredData = leaderboardData.filter(row => {
+                    const typeMatch = !!typeAllowed[row.category];
+                    // const stepsMatch = filterSteps.value === 'all' || row.max_steps === parseInt(filterSteps.value);  // Max Steps filter hidden
+
+                    // Filter out rows that have no data for any selected category
+                    const hasSelectedData =
+                        (includeGui && row.gui_only !== null) ||
+                        (includeUser && row.user_int !== null) ||
+                        (includeMcp && row.mcp !== null);
+
+                    return typeMatch && hasSelectedData;  // && stepsMatch
+                });
+                updateTableHeader();
+                renderTable();
+            }
+
+            function formatDate(dateStr) {
+                const date = new Date(dateStr);
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+            }
+
+            function renderTable() {
+                const checkedCount = [filterGuiOnly.checked, filterUserInt.checked, filterMcp.checked].filter(Boolean).length;
+                const showOverall = checkedCount > 1;
+
+                // Update column visibility in header
+                updateColumnVisibility();
+
+                // Sort data
+                const sorted = [...filteredData].sort((a, b) => {
+                    let aVal, bVal;
+                    if (currentSort.key === 'date') {
+                        aVal = new Date(a.date).getTime();
+                        bVal = new Date(b.date).getTime();
+                    } else if (currentSort.key === 'overall') {
+                        // Overall is always computed dynamically
+                        aVal = getFilteredScore(a) ?? -1;
+                        bVal = getFilteredScore(b) ?? -1;
+                    } else {
+                        // Handle numeric score columns: gui_only, user_int, mcp
+                        aVal = a[currentSort.key] ?? -1;
+                        bVal = b[currentSort.key] ?? -1;
+                    }
+                    return currentSort.dir === 'desc' ? bVal - aVal : aVal - bVal;
+                });
+
+                // Render rows
+                tbody.innerHTML = sorted.map((row, index) => {
+                    const rank = index + 1;
+                    const isFirst = rank === 1;
+                    const rowClass = isFirst ? 'first-rank-row' : '';
+                    const starIcon = isFirst ? ' ⭐' : '';
+
+                    const modelName = row.model;
+
+                    // Category badge class — driven by leaderboard.json `category`
+                    const categoryClass = CATEGORY_BADGE_CLASS[row.category] || 'tag is-light';
+                    const categoryLabel = row.category;
+
+                    // Calculate display score for Overall column (always computed dynamically)
+                    const overallScore = getFilteredScore(row);
+                    const overallDisplay = overallScore !== null ? overallScore.toFixed(1) : '-';
+
+                    // Build cells based on which columns are visible
+                    const overallCell = showOverall ?
+                        `<td class="has-text-centered"><strong class="overall-score">${overallDisplay}</strong></td>` : '';
+                    const guiCell = filterGuiOnly.checked ?
+                        `<td class="has-text-centered">${row.gui_only !== null ? row.gui_only : '-'}</td>` : '';
+                    const userCell = filterUserInt.checked ?
+                        `<td class="has-text-centered">${row.user_int !== null ? row.user_int : '-'}</td>` : '';
+                    const mcpCell = filterMcp.checked ?
+                        `<td class="has-text-centered">${row.mcp !== null ? row.mcp : '-'}</td>` : '';
+
+                    return `
+                        <tr class="${rowClass}">
+                            <td class="has-text-centered"><strong>${rank}</strong></td>
+                            <td><span class="category-badge ${categoryClass}">${categoryLabel}</span></td>
+                            <td class="model-cell">
+                                <div class="model-name"><strong><a href="#" class="model-name-link" data-index="${sorted.indexOf(row)}">${modelName}</a></strong>
+                                    ${row.traj_file ? `<button class="traj-btn" data-traj-file="${row.traj_file}" data-model="${row.model}" title="View trajectories"><i class="fas fa-route"></i></button><a class="arena-link-btn" href="arena?model=${encodeURIComponent(row.model)}" title="Compare in Arena"><i class="fas fa-scale-balanced"></i></a>` : ''}
+                                </div>
+                                <div class="model-org">${row.organization}</div>
+                                <div class="model-date"><i class="far fa-calendar"></i> ${formatDate(row.date)}</div>
+                            </td>
+                            <!-- <td class="has-text-centered">${row.max_steps}</td> -->
+                            ${overallCell}
+                            ${guiCell}
+                            ${userCell}
+                            ${mcpCell}
+                        </tr>
+                    `;
+                }).join('');
+
+                // Attach model name click handlers
+                tbody.querySelectorAll('.model-name-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const idx = parseInt(link.dataset.index);
+                        const row = sorted[idx];
+                        openDetailModal(row);
+                    });
+                });
+                tbody.querySelectorAll('.traj-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        openTrajModal(btn.dataset.trajFile, btn.dataset.model);
+                    });
+                });
+            }
+            // Detail modal logic
+            const modal = document.getElementById('detail-modal');
+            const modalHeader = document.getElementById('detail-modal-header');
+            const modalBody = document.getElementById('detail-modal-body');
+            const modalClose = document.getElementById('detail-modal-close');
+            const modalBg = modal.querySelector('.modal-background');
+
+            const AGENT_BASE_URL = 'https://github.com/Tongyi-MAI/MobileWorld/blob/main/src/mobile_world/agents/implementations/';
+            const AGENT_FILES = {
+                'qwen3vl': 'qwen3vl.py',
+                'planner_executor': 'planner_executor.py',
+                'mai_ui_agent': 'mai_ui_agent.py',
+                'general_e2e': 'general_e2e_agent.py',
+                'seed_agent': 'seed_agent.py',
+                'gelab_agent': 'gelab_agent.py',
+                'ui_venus_agent': 'ui_venus_agent.py',
+                'gui_owl_1_5': 'gui_owl_1_5.py',
+            };
+
+            function agentTypeHtml(agentType) {
+                if (!agentType) return null;
+                const key = agentType.toLowerCase();
+                const file = AGENT_FILES[key];
+                if (file) {
+                    return `<a href="${AGENT_BASE_URL}${file}" target="_blank" rel="noopener">${agentType}</a>`;
+                }
+                return agentType;
+            }
+
+            function openDetailModal(row) {
+                const overallScore = getFilteredScore(row);
+                const na = '<span class="dm-empty">—</span>';
+                const categoryLabel = row.category;
+
+                modalHeader.innerHTML = `
+                    <span class="dm-pill">${categoryLabel}</span>
+                    <h2 class="dm-title">${row.model}</h2>
+                    <p class="dm-subtitle">${row.organization} · ${formatDate(row.date)}</p>
+                `;
+
+                function scoreRow(label, value) {
+                    const display = value !== null && value !== undefined ? value.toFixed(1) : null;
+                    const pct = display !== null ? Math.min(value / 100 * 100, 100) : 0;
+                    return `<div class="dm-row">
+                        <span class="dm-row-label">${label}</span>
+                        <span class="dm-bar-wrap"><span class="dm-bar" style="width:${pct}%"></span></span>
+                        <span class="dm-row-val">${display !== null ? display : na}</span>
+                    </div>`;
+                }
+
+                const linkDisplay = row.link
+                    ? (() => { try { return new URL(row.link).hostname; } catch { return row.link; } })()
+                    : null;
+
+                modalBody.innerHTML = `
+                    <div class="dm-metric">
+                        <span class="dm-metric-num">${overallScore !== null ? overallScore.toFixed(1) : '—'}</span>
+                        <span class="dm-metric-unit">% overall</span>
+                    </div>
+
+                    <div class="dm-scores">
+                        ${scoreRow('GUI-Only', row.gui_only)}
+                        ${scoreRow('User-Int.', row.user_int)}
+                        ${scoreRow('MCP', row.mcp)}
+                    </div>
+
+                    <hr class="dm-hr">
+
+                    <dl class="dm-dl">
+                        <div class="dm-dl-row">
+                            <dt>Max steps</dt><dd>${row.max_steps}</dd>
+                        </div>
+                        <div class="dm-dl-row">
+                            <dt>Runs</dt><dd>${row.runs}</dd>
+                        </div>
+                        <div class="dm-dl-row">
+                            <dt>Reference</dt><dd>${row.link ? `<a href="${row.link}" target="_blank" rel="noopener">${linkDisplay}</a>` : na}</dd>
+                        </div>
+                    </dl>
+
+                    <hr class="dm-hr">
+
+                    <dl class="dm-dl">
+                        <div class="dm-dl-row">
+                            <dt>Agent type</dt><dd>${agentTypeHtml(row.agent_type) ?? na}</dd>
+                        </div>
+                        <div class="dm-dl-row">
+                            <dt>Images in history</dt><dd>${row.num_images_in_history ?? na}</dd>
+                        </div>
+                        <div class="dm-dl-row dm-dl-row--block">
+                            <dt>Notes</dt><dd>${row.notes ?? na}</dd>
+                        </div>
+                    </dl>
+                    ${row.traj_file ? `
+                    <hr class="dm-hr">
+                    <div class="dm-actions">
+                        <button class="traj-open-btn" data-traj-file="${row.traj_file}" data-model="${row.model}">
+                            <i class="fas fa-route"></i> View Trajectories
+                        </button>
+                        <a class="traj-open-btn" href="arena?model=${encodeURIComponent(row.model)}">
+                            <i class="fas fa-scale-balanced"></i> Compare in Arena
+                        </a>
+                    </div>` : ''}
+                `;
+                modal.classList.add('is-active');
+
+                const trajBtn = modalBody.querySelector('.traj-open-btn');
+                if (trajBtn) {
+                    trajBtn.addEventListener('click', () => {
+                        closeDetailModal();
+                        openTrajModal(trajBtn.dataset.trajFile, trajBtn.dataset.model);
+                    });
+                }
+            }
+
+            function closeDetailModal() {
+                modal.classList.remove('is-active');
+            }
+
+            modalClose.addEventListener('click', closeDetailModal);
+            modalBg.addEventListener('click', closeDetailModal);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (trajModal.classList.contains('is-active')) closeTrajModal();
+                    else if (submitModal.classList.contains('is-active')) submitModal.classList.remove('is-active');
+                    else closeDetailModal();
+                }
+            });
+
+            // ── Submission modal ──
+            const submitModal = document.getElementById('submit-modal');
+            document.getElementById('submit-results-link').addEventListener('click', (e) => {
+                e.preventDefault();
+                submitModal.classList.add('is-active');
+            });
+            document.getElementById('submit-modal-close').addEventListener('click', () => submitModal.classList.remove('is-active'));
+            submitModal.querySelector('.modal-background').addEventListener('click', () => submitModal.classList.remove('is-active'));
+
+            // ── Trajectory Viewer ──
+            const trajModal = document.getElementById('traj-modal');
+            const trajModalClose = document.getElementById('traj-modal-close');
+            const trajModalBg = trajModal.querySelector('.modal-background');
+            const trajModelName = document.getElementById('traj-model-name');
+            const trajTaskSelect = document.getElementById('traj-task-select');
+            const trajResultBadge = document.getElementById('traj-result-badge');
+            const trajLoading = document.getElementById('traj-loading');
+            const trajSteps = document.getElementById('traj-steps');
+
+            const trajCache = {};
+
+            async function fetchGzipJson(url, onProgress) {
+                const resp = await fetch(url);
+                if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                const total = parseInt(resp.headers.get('content-length') || '0', 10);
+                let loaded = 0;
+                const rawChunks = [];
+                const rawReader = resp.body.getReader();
+                while (true) {
+                    const { done, value } = await rawReader.read();
+                    if (done) break;
+                    rawChunks.push(value);
+                    loaded += value.byteLength;
+                    if (onProgress && total) onProgress(loaded / total);
+                }
+                const rawBlob = new Blob(rawChunks);
+                const ds = new DecompressionStream('gzip');
+                const decompressed = rawBlob.stream().pipeThrough(ds);
+                const reader = decompressed.getReader();
+                const chunks = [];
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    chunks.push(value);
+                }
+                const blob = new Blob(chunks);
+                const text = await blob.text();
+                return JSON.parse(text);
+            }
+
+            // ── Screenshot video utilities ──
+            // Point the <video> at the URL directly so frame seeks issue
+            // range requests for just that frame's bytes (mp4 is +faststart),
+            // letting screenshots render as soon as their bytes arrive instead
+            // of waiting for the whole file to download.
+            const videoCache = {};
+
+            function loadVideo(url) {
+                if (videoCache[url]) return videoCache[url];
+                const promise = (async () => {
+                    const video = document.createElement('video');
+                    video.preload = 'auto';
+                    video.muted = true;
+                    video.playsInline = true;
+                    video.src = url;
+                    await new Promise((res, rej) => {
+                        video.addEventListener('loadedmetadata', res, { once: true });
+                        video.addEventListener('error', rej, { once: true });
+                    });
+                    return video;
+                })();
+                videoCache[url] = promise;
+                return promise;
+            }
+
+            function extractFrame(video, frameIndex, fps) {
+                return new Promise((resolve) => {
+                    const targetTime = (frameIndex + 0.25) / fps;
+                    if (Math.abs(video.currentTime - targetTime) < 0.01) {
+                        resolve(video);
+                        return;
+                    }
+                    video.addEventListener('seeked', () => resolve(video), { once: true });
+                    video.currentTime = targetTime;
+                });
+            }
+
+            function drawActionOverlay(ctx, action, scaleX, scaleY) {
+                const actionType = action.action_type;
+                if (['click', 'double_tap', 'long_press'].includes(actionType)) {
+                    const x = action.x * scaleX;
+                    const y = action.y * scaleY;
+                    const r = 16 * scaleX;
+                    ctx.beginPath();
+                    ctx.arc(x, y, r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+                    ctx.fill();
+                    ctx.strokeStyle = 'red';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                } else if (actionType === 'drag') {
+                    const sx = action.start_x * scaleX, sy = action.start_y * scaleY;
+                    const ex = action.end_x * scaleX, ey = action.end_y * scaleY;
+                    if (sx != null && sy != null && ex != null && ey != null) {
+                        ctx.beginPath();
+                        ctx.moveTo(sx, sy);
+                        ctx.lineTo(ex, ey);
+                        ctx.strokeStyle = 'rgba(0, 100, 255, 0.7)';
+                        ctx.lineWidth = 3 * scaleX;
+                        ctx.stroke();
+                        const r = 12 * scaleX;
+                        ctx.beginPath();
+                        ctx.arc(sx, sy, r, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(0, 180, 0, 0.6)';
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.arc(ex, ey, r, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(255, 0, 0, 0.6)';
+                        ctx.fill();
+                    }
+                }
+            }
+
+            async function renderScreenshotCanvas(canvas, video, frameIndex, fps, meta, action) {
+                await extractFrame(video, frameIndex, fps);
+                const dw = meta.display_width;
+                const dh = meta.display_height;
+                canvas.width = dw;
+                canvas.height = dh;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(video, 0, 0, dw, dh);
+                if (action) {
+                    const scaleX = dw / meta.original_width;
+                    const scaleY = dh / meta.original_height;
+                    drawActionOverlay(ctx, action, scaleX, scaleY);
+                }
+            }
+
+            const trajExpandAllBtn = document.getElementById('traj-expand-all');
+            function updateExpandAllLabel() {
+                const blocks = trajSteps.querySelectorAll('.traj-screenshot-block');
+                if (blocks.length === 0) {
+                    trajExpandAllBtn.style.display = 'none';
+                    return;
+                }
+                trajExpandAllBtn.style.display = '';
+                const allOpen = [...blocks].every(b => b.open);
+                trajExpandAllBtn.textContent = allOpen ? 'Collapse all' : 'Expand all';
+            }
+            trajExpandAllBtn.addEventListener('click', () => {
+                const blocks = trajSteps.querySelectorAll('.traj-screenshot-block');
+                if (blocks.length === 0) return;
+                const allOpen = [...blocks].every(b => b.open);
+                blocks.forEach(b => { b.open = !allOpen; });
+                updateExpandAllLabel();
+            });
+            trajSteps.addEventListener('toggle', (e) => {
+                if (e.target.classList?.contains('traj-screenshot-block')) updateExpandAllLabel();
+            }, true);
+
+            async function openTrajModal(trajFile, modelName) {
+                trajModelName.textContent = modelName + ' — Trajectories';
+                trajTaskSelect.innerHTML = '';
+                trajSteps.innerHTML = '';
+                trajResultBadge.textContent = '';
+                trajExpandAllBtn.style.display = 'none';
+                trajLoading.style.display = 'flex';
+                trajModal.classList.add('is-active');
+
+                const loadingText = document.getElementById('traj-loading-text');
+                const progressWrap = document.getElementById('traj-progress-wrap');
+                const progressBar = document.getElementById('traj-progress-bar');
+                loadingText.textContent = 'Loading trajectories…';
+                progressWrap.style.display = 'none';
+                progressBar.style.width = '0%';
+
+                let data;
+                if (trajCache[trajFile]) {
+                    data = trajCache[trajFile];
+                } else {
+                    try {
+                        progressWrap.style.display = '';
+                        loadingText.textContent = 'Downloading trajectory data…';
+                        data = await fetchGzipJson(trajFile, (pct) => {
+                            progressBar.style.width = (pct * 100).toFixed(1) + '%';
+                        });
+                        trajCache[trajFile] = data;
+                    } catch (err) {
+                        trajLoading.innerHTML = `<i class="fas fa-exclamation-triangle"></i> Failed to load: ${err.message}`;
+                        return;
+                    }
+                }
+
+                trajLoading.style.display = 'none';
+
+                const meta = data._meta || null;
+                let videoPromise = null;
+                if (meta && meta.video_file) {
+                    const videoUrl = meta.video_file.startsWith('http')
+                        ? meta.video_file
+                        : trajFile.replace(/[^/]+$/, '') + meta.video_file;
+                    videoPromise = loadVideo(videoUrl).catch(e => {
+                        console.warn('Video load failed:', e);
+                        return null;
+                    });
+                }
+
+                let renderGeneration = 0;
+
+                const taskNames = Object.keys(data).filter(k => k !== '_meta').sort();
+                taskNames.forEach(name => {
+                    const opt = document.createElement('option');
+                    opt.value = name;
+                    opt.textContent = name;
+                    trajTaskSelect.appendChild(opt);
+                });
+
+                function renderTask(taskName) {
+                    const task = data[taskName];
+                    if (!task) return;
+
+                    if (task.result) {
+                        const scoreMatch = task.result.match(/score:\s*([\d.]+)/);
+                        const score = scoreMatch ? parseFloat(scoreMatch[1]) : null;
+                        trajResultBadge.textContent = score === 1 ? 'Pass' : score === 0 ? 'Fail' : task.result.split('\n')[0];
+                        trajResultBadge.className = 'traj-result ' + (score === 1 ? 'traj-result--pass' : 'traj-result--fail');
+                    } else {
+                        trajResultBadge.textContent = '';
+                        trajResultBadge.className = 'traj-result';
+                    }
+
+                    const steps = task.traj || [];
+                    const taskGoal = steps.length > 0 && steps[0].task_goal
+                        ? `<div class="traj-goal"><span class="traj-goal-label">Task Goal</span>${escHtml(steps[0].task_goal)}</div>` : '';
+                    let html = taskGoal + steps.map((step, i) => {
+                        const pred = step.prediction || '';
+                        let think = '', response = '';
+                        const thinkMatch = pred.match(/<think>([\s\S]*?)<\/think>/);
+                        if (thinkMatch) {
+                            think = thinkMatch[1].trim();
+                            response = pred.slice(thinkMatch.index + thinkMatch[0].length).trim();
+                        } else {
+                            response = pred;
+                        }
+
+                        const action = step.action || {};
+                        let actionStr = action.action_type || 'unknown';
+                        if (action.x !== undefined && action.y !== undefined) {
+                            actionStr += ` (${action.x}, ${action.y})`;
+                        }
+                        if (action.text) {
+                            actionStr += `: "${action.text}"`;
+                        }
+                        if (action.direction) {
+                            actionStr += ` ${action.direction}`;
+                        }
+
+                        const hasFrame = step.frame_index !== undefined && meta && meta.video_file;
+                        const screenshotHtml = hasFrame
+                            ? `<details class="traj-screenshot-block"><summary>Screenshot</summary><div class="traj-screenshot is-loading"><canvas class="traj-canvas" data-frame="${step.frame_index}" data-step="${i}"></canvas><div class="traj-screenshot-spinner"><i class="fas fa-spinner fa-spin"></i> Loading screenshot…</div></div></details>`
+                            : '';
+
+                        const askUser = step.ask_user_response
+                            ? `<div class="traj-ask-user"><span class="traj-ask-label">User Response</span><span>${escHtml(step.ask_user_response)}</span></div>`
+                            : '';
+
+                        const toolCall = step.tool_call
+                            ? `<div class="traj-tool-call"><span class="traj-tool-label">Tool Call</span><pre>${escHtml(JSON.stringify(step.tool_call, null, 2))}</pre></div>`
+                            : '';
+
+                        return `
+                            <div class="traj-step">
+                                <div class="traj-step-header">
+                                    <span class="traj-step-num">Step ${step.step || i + 1}</span>
+                                    <span class="traj-action-badge">${escHtml(actionStr)}</span>
+                                </div>
+                                ${screenshotHtml}
+                                ${think ? `<details class="traj-think"><summary>Thinking</summary><div class="traj-think-body">${escHtml(think)}</div></details>` : ''}
+                                ${response ? `<div class="traj-response">${escHtml(response)}</div>` : ''}
+                                ${askUser}
+                                ${toolCall}
+                            </div>
+                        `;
+                    }).join('');
+
+                    if (task.token_usage) {
+                        const tu = task.token_usage;
+                        html += `
+                            <div class="traj-token-summary">
+                                Token usage: ${(tu.prompt_tokens || 0).toLocaleString()} prompt · ${(tu.completion_tokens || 0).toLocaleString()} completion · ${(tu.total_tokens || 0).toLocaleString()} total
+                            </div>
+                        `;
+                    }
+
+                    trajSteps.innerHTML = html;
+                    updateExpandAllLabel();
+
+                    // Render screenshot frames into canvases (sequentially to avoid seek races).
+                    // Wait for the video to land in the background; bail out if the user
+                    // switches tasks before screenshots are ready.
+                    if (videoPromise && meta) {
+                        const myGen = ++renderGeneration;
+                        (async () => {
+                            const videoEl = await videoPromise;
+                            if (myGen !== renderGeneration) return;
+                            if (!videoEl) {
+                                trajSteps.querySelectorAll('.traj-screenshot.is-loading .traj-screenshot-spinner').forEach(el => {
+                                    el.innerHTML = '<i class="fas fa-image"></i> Screenshot unavailable';
+                                });
+                                return;
+                            }
+                            const canvases = trajSteps.querySelectorAll('.traj-canvas');
+                            for (const canvas of canvases) {
+                                if (myGen !== renderGeneration) return;
+                                const fi = parseInt(canvas.dataset.frame);
+                                const si = parseInt(canvas.dataset.step);
+                                const stepAction = steps[si]?.action || null;
+                                await renderScreenshotCanvas(canvas, videoEl, fi, meta.fps, meta, stepAction);
+                                canvas.parentElement?.classList.remove('is-loading');
+                            }
+                        })();
+                    }
+                }
+
+                trajTaskSelect.onchange = () => renderTask(trajTaskSelect.value);
+                if (taskNames.length > 0) renderTask(taskNames[0]);
+            }
+
+            function escHtml(str) {
+                const div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
+            }
+
+            // Click-to-zoom on screenshot canvases
+            document.addEventListener('click', (e) => {
+                const canvas = e.target.closest('.traj-canvas');
+                if (!canvas) return;
+                const overlay = document.createElement('div');
+                overlay.className = 'traj-screenshot-overlay';
+                const big = document.createElement('canvas');
+                big.width = canvas.width * 2;
+                big.height = canvas.height * 2;
+                const ctx = big.getContext('2d');
+                ctx.drawImage(canvas, 0, 0, big.width, big.height);
+                overlay.appendChild(big);
+                overlay.addEventListener('click', () => overlay.remove());
+                document.body.appendChild(overlay);
+            });
+
+            function closeTrajModal() {
+                trajModal.classList.remove('is-active');
+            }
+
+            trajModalClose.addEventListener('click', closeTrajModal);
+            trajModalBg.addEventListener('click', closeTrajModal);
+        });
+    </script>
+</body>
+
+</html>
