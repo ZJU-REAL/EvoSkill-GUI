@@ -1,0 +1,223 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Johnson;Emily;;;
+FN:Emily Johnson
+ORG:Sunset Designs
+TITLE:UX Designer
+TEL;TYPE=CELL:+1-236-646-2553
+EMAIL;TYPE=INTERNET:emily.johnson@sunset.com
+ADR;TYPE=WORK:;;943 Broadway;San Francisco;CA;94103;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Brown;Michael;;;
+FN:Michael Brown
+ORG:NorthTech
+TITLE:Software Engineer
+TEL;TYPE=CELL:+1-820-851-8075
+EMAIL;TYPE=INTERNET:michael.brown@northtech.com
+ADR;TYPE=WORK:;;814 Maple Ave;Seattle;WA;98101;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Martinez;Sarah;;;
+FN:Sarah Martinez
+ORG:Greenfield University
+TITLE:Research Scientist
+TEL;TYPE=CELL:+1-473-747-4173
+EMAIL;TYPE=INTERNET:sarah.martinez@greenfield.com
+ADR;TYPE=WORK:;;574 Pine St;Cambridge;MA;02138;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Wilson;David;;;
+FN:David Wilson
+ORG:ClearWave Media
+TITLE:Product Manager
+TEL;TYPE=CELL:+1-754-644-7395
+EMAIL;TYPE=INTERNET:david.wilson@clearwave.com
+ADR;TYPE=WORK:;;655 Maple Ave;New York;NY;10118;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Lee;Jessica;;;
+FN:Jessica Lee
+ORG:BlueSky Finance
+TITLE:Analyst
+TEL;TYPE=CELL:+1-605-511-7055
+EMAIL;TYPE=INTERNET:jessica.lee@bluesky.com
+ADR;TYPE=WORK:;;863 Broadway;Miami;FL;33139;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Taylor;Olivia;;;
+FN:Olivia Taylor
+ORG:HealthPlus
+TITLE:Medical Data Scientist
+TEL;TYPE=CELL:+1-427-778-3563
+EMAIL;TYPE=INTERNET:olivia.taylor@healthplus.com
+ADR;TYPE=WORK:;;469 Broadway;Los Angeles;CA;90017;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Anderson;James;;;
+FN:James Anderson
+ORG:Quantify AI
+TITLE:CTO
+TEL;TYPE=CELL:+1-259-531-3302
+EMAIL;TYPE=INTERNET:james.anderson@quantify.com
+ADR;TYPE=WORK:;;877 Broadway;Austin;TX;78701;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:White;Sophia;;;
+FN:Sophia White
+ORG:AeroStream
+TITLE:Mechanical Engineer
+TEL;TYPE=CELL:+1-685-426-9375
+EMAIL;TYPE=INTERNET:sophia.white@aerostream.com
+ADR;TYPE=WORK:;;471 Maple Ave;Denver;CO;80202;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Thompson;William;;;
+FN:William Thompson
+ORG:CloudVerse
+TITLE:Cloud Architect
+TEL;TYPE=CELL:+1-483-835-5758
+EMAIL;TYPE=INTERNET:william.thompson@cloudverse.com
+ADR;TYPE=WORK:;;620 Main St;Portland;OR;97204;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Clark;Ethan;;;
+FN:Ethan Clark
+ORG:BrightPath Labs
+TITLE:Project Lead
+TEL;TYPE=CELL:+1-649-461-1138
+EMAIL;TYPE=INTERNET:ethan.clark@brightpath.com
+ADR;TYPE=WORK:;;211 Market St;Boston;MA;02110;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Lewis;Ava;;;
+FN:Ava Lewis
+ORG:Silverline Systems
+TITLE:System Analyst
+TEL;TYPE=CELL:+1-463-546-9700
+EMAIL;TYPE=INTERNET:ava.lewis@silverline.com
+ADR;TYPE=WORK:;;247 Market St;Atlanta;GA;30303;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Walker;Daniel;;;
+FN:Daniel Walker
+ORG:Peakstone Analytics
+TITLE:Data Engineer
+TEL;TYPE=CELL:+1-615-519-5822
+EMAIL;TYPE=INTERNET:daniel.walker@peakstone.com
+ADR;TYPE=WORK:;;188 Broadway;Dallas;TX;75201;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Hall;Grace;;;
+FN:Grace Hall
+ORG:UrbanEdge Studios
+TITLE:Creative Director
+TEL;TYPE=CELL:+1-774-693-7409
+EMAIL;TYPE=INTERNET:grace.hall@urbanedge.com
+ADR;TYPE=WORK:;;666 Broadway;San Diego;CA;92101;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Allen;Benjamin;;;
+FN:Benjamin Allen
+ORG:Cobalt Dynamics
+TITLE:Marketing Manager
+TEL;TYPE=CELL:+1-744-371-2910
+EMAIL;TYPE=INTERNET:benjamin.allen@cobalt.com
+ADR;TYPE=WORK:;;800 Pine St;Houston;TX;77002;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Young;Chloe;;;
+FN:Chloe Young
+ORG:NextGen Robotics
+TITLE:Operations Lead
+TEL;TYPE=CELL:+1-627-547-5879
+EMAIL;TYPE=INTERNET:chloe.young@nextgen.com
+ADR;TYPE=WORK:;;971 Market St;Philadelphia;PA;19103;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Harris;Lucas;;;
+FN:Lucas Harris
+ORG:FusionWorks
+TITLE:AI Researcher
+TEL;TYPE=CELL:+1-304-940-8938
+EMAIL;TYPE=INTERNET:lucas.harris@fusionworks.com
+ADR;TYPE=WORK:;;720 Maple Ave;Phoenix;AZ;85004;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:King;Ella;;;
+FN:Ella King
+ORG:Redwood Ventures
+TITLE:Hardware Engineer
+TEL;TYPE=CELL:+1-467-674-1503
+EMAIL;TYPE=INTERNET:ella.king@redwood.com
+ADR;TYPE=WORK:;;902 Main St;Minneapolis;MN;55401;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Wright;Henry;;;
+FN:Henry Wright
+ORG:HarborTech
+TITLE:Finance Director
+TEL;TYPE=CELL:+1-409-822-4788
+EMAIL;TYPE=INTERNET:henry.wright@harbortech.com
+ADR;TYPE=WORK:;;834 Market St;Salt Lake City;UT;84111;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Scott;Mia;;;
+FN:Mia Scott
+ORG:SummitCloud
+TITLE:Chief Designer
+TEL;TYPE=CELL:+1-405-829-8746
+EMAIL;TYPE=INTERNET:mia.scott@summitcloud.com
+ADR;TYPE=WORK:;;188 Pine St;Las Vegas;NV;89101;USA
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Hofstadter;Leonard;;;
+FN:Leonard Hofstadter
+TEL;TYPE=CELL:+1-626-555-1427
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Pattinson;Robert;;;
+FN:Robert Pattinson
+X-NICKNAME:rainbow123
+EMAIL;TYPE=INTERNET:RB123@gmail.com
+END:VCARD

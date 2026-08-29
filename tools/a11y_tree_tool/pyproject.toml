@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "a11y-tree-tool"
+version = "0.1.0"
+description = "Android accessibility-tree capture utility for CoEvoSkill"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+grpc = ["android_env==1.2.3"]
+
+[project.scripts]
+a11y-tree = "a11y_tool.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["a11y_tool*"]

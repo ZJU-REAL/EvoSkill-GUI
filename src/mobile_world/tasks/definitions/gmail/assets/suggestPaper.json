@@ -1,0 +1,201 @@
+{
+  "username": "Princewill Iroka",
+  "mails": [
+    {
+      "headers": {
+        "subject": "Field trip",
+        "date": "Oct 20",
+        "from": "Echo",
+        "to": "user@email.com",
+        "sender": "echo@email.com",
+        "senderLogo": ""
+      },
+      "body": "",
+      "status": "unread",
+      "attachments": ["form2.jpg"]
+    },
+    {
+      "headers": {
+        "subject": "Literature Review Suggestions",
+        "date": "Oct 16",
+        "from": "Tony",
+        "to": "user@email.com",
+        "sender": "tony101@email.com",
+        "senderLogo": ""
+      },
+      "body": "Hi Princewill, I hope you're doing well. I wanted to reach out and ask if you have any suggestions for literature to review regarding our upcoming project.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "What You Need to Know About React 18 | Sheeraz Shaikh in JavaScript in Plain English",
+        "date": "Oct 16",
+        "from": "Medium Daily Digest",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": "https://cdn4.iconfinder.com/data/icons/social-media-circle-7/512/Medium_circle-512.png"
+      },
+      "body": "Here is a round-up of our stories for the month of June",
+      "status": "read",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Signed form",
+        "date": "Oct 15",
+        "from": "Dave",
+        "to": "user@email.com",
+        "sender": "dave@email.com",
+        "senderLogo": ""
+      },
+      "body": "Here is Dave's signed field trip form.",
+      "status": "unread",
+      "attachments": ["form3.jpg"]
+    },
+    {
+      "headers": {
+        "subject": "John Doe commented on your post",
+        "date": "Oct 11",
+        "from": "LinkedIn",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": "https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png"
+      },
+      "body": "Princewill Iroka here are your most recent notifications",
+      "status": "read",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Your Cloud Firestore database rules need to be updated",
+        "date": "Oct 10",
+        "from": "firebase-noreply",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": ""
+      },
+      "body": "Analysis is run daily. If you've modified your rules in the last 24 hours that may not be accounted for.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Field trip form",
+        "date": "Oct 3",
+        "from": "Carl",
+        "to": "user@email.com",
+        "sender": "carl@email.com",
+        "senderLogo": ""
+      },
+      "body": "",
+      "status": "read",
+      "attachments": ["form1.jpg"]
+    },
+    {
+      "headers": {
+        "subject": "One week until Vercel's Next.js Conf",
+        "date": "Oct 8",
+        "from": "Vercel",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": ""
+      },
+      "body": "Join the Next.js Conf on June 15th for a special edition, presented by Vercel and Google Chrome, and including some incredible announcements and new features!",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Field trip",
+        "date": "Oct 2",
+        "from": "Bob",
+        "to": "user@email.com",
+        "sender": "bob@email.com",
+        "senderLogo": ""
+      },
+      "body": "",
+      "status": "unread",
+      "attachments": ["form5.jpg"]
+    },
+    {
+      "headers": {
+        "subject": "Spring 2026 Graduates",
+        "date": "Oct 1",
+        "from": "University",
+        "to": "user@email.com",
+        "sender": "university@email.com",
+        "senderLogo": ""
+      },
+      "body": "Here is the list of students graduating from the math department in the Spring 2026 semester: Bob (bob@gmail.com), Carl (carl@gmail.com), Alice (alice@gmail.com), David (dave@gmail.com)",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "New jobs that match your saved search on Stack Overflow",
+        "date": "Sep 30",
+        "from": "Stack Overflow",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": ""
+      },
+      "body": "",
+      "status": "read",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Field trip form",
+        "date": "Sep 30",
+        "from": "Alice",
+        "to": "user@email.com",
+        "sender": "alice@email.com",
+        "senderLogo": ""
+      },
+      "body": "Here is Alice's signed field trip form.",
+      "status": "read",
+      "attachments": ["form4.jpg"]
+    },
+    {
+      "headers": {
+        "subject": "New jobs that match your saved search on Stack Overflow",
+        "date": "Sep 28",
+        "from": "Udacity",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Udacity_logo.png"
+      },
+      "body": "New jobs that match your saved search on Stack Overflow",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Learn Mobile UI/UX from Nike & Adobe Designer Jesse Showalter",
+        "date": "Sep 23",
+        "from": "Dribbble",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": ""
+      },
+      "body": "Level-up your mobile app & interface skills in our new Dribbble Workshop",
+      "status": "read",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "The Ultimate Guide to MERN Stack + 5 more trending DEV Community posts",
+        "date": "Sep 22",
+        "from": "DEV Community Digest",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": "https://d2fltix0v2e0sb.cloudfront.net/dev-black.png"
+      },
+      "body": "Recent posts you might find valuable based on your interests ❤️",
+      "status": "unread",
+      "attachments": []
+    }
+  ],
+  "activeTab": "Mail"
+}

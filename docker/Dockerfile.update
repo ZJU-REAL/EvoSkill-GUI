@@ -1,0 +1,30 @@
+FROM ghcr.io/tongyi-mai/mobile_world:latest
+
+# Install socat (added after initial release for ADB port relay)
+RUN apt-get update && apt-get install -y --no-install-recommends socat && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Switch to iptables-nft backend for compatibility with host kernels (6.x+)
+# that have dropped the legacy iptable_nat module in favor of nftables-only NAT.
+# The entrypoint also does runtime detection and can fall back to legacy if needed.
+RUN update-alternatives --set iptables /usr/sbin/iptables-nft && \
+    update-alternatives --set ip6tables /usr/sbin/ip6tables-nft
+
+# Copy updated source code
+COPY src/ /app/service/src/
+
+# Copy updated entrypoint (iptables auto-detection + dockerd health check
+# + outbound HTTP proxy normalization)
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Copy updated emulator launch script (Android system-proxy plumbing)
+COPY docker/start_emulator.sh /app/docker/start_emulator.sh
+RUN chmod +x /app/docker/start_emulator.sh
+
+# Copy the in-container proxy chain that handles 10.0.2.x bypass
+COPY docker/proxy_chain.py /app/docker/proxy_chain.py
+RUN chmod +x /app/docker/proxy_chain.py
+
+# Update CMD to also tail dockerd log
+CMD tail -f /var/log/emulator.log /var/log/server.log /var/log/dockerd.err.log
