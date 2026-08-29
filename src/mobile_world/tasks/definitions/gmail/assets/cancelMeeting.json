@@ -1,0 +1,240 @@
+{
+  "username": "Princewill Iroka",
+  "mails": [
+    {
+      "headers": {
+        "subject": "The Ultimate Guide to MERN Stack + 5 more trending DEV Community posts",
+        "date": "Nov 3",
+        "from": "DEV Community Digest",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": "https://d2fltix0v2e0sb.cloudfront.net/dev-black.png"
+      },
+      "body": "Recent posts you might find valuable based on your interests ❤️",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Meeting Thursday",
+        "date": "Nov 3",
+        "from": "Daniel",
+        "to": "user@email.com",
+        "sender": "dan123@gmail.com",
+        "senderLogo": ""
+      },
+      "body": "Hey, I just wanted to confirm that you are still available for our meeting on Thursday.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "MCFT Conference",
+        "date": "Nov 3",
+        "from": "university@gmail.com",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": ""
+      },
+      "body": "This year's MCFT Conference will be held at the Harvard Square Hotel.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Interview with Amazon - Backend Developer",
+        "date": "Nov 2, 2025",
+        "from": "Amazon Careers",
+        "to": "user@email.com",
+        "sender": "careers@amazon.com",
+        "senderLogo": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+      },
+      "body": "Your interview with Amazon is scheduled for November 20, 2025, at 3:00 PM. Duration: 90 minutes.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Interview with Google - Software Engineer",
+        "date": "Oct 29, 2025",
+        "from": "Google Careers",
+        "to": "user@email.com",
+        "sender": "careers@google.com",
+        "senderLogo": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+      },
+      "body": "Your interview with Google is scheduled for November 12, 2025, from 2 pm to 3 pm.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Interview with Meta - Frontend Developer",
+        "date": "Oct 20, 2025",
+        "from": "Meta Careers",
+        "to": "user@email.com",
+        "sender": "careers@meta.com",
+        "senderLogo": "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
+      },
+      "body": "Your interview with Meta is scheduled for November 3, 2025, at 5:30 PM. Duration: 45 minutes.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Interview with Netflix - Data Engineer",
+        "date": "Oct 10, 2025",
+        "from": "Netflix Careers",
+        "to": "user@email.com",
+        "sender": "careers@netflix.com",
+        "senderLogo": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+      },
+      "body": "Your interview with Netflix is scheduled for October 17, 2025, at 11:00 AM. Duration: 60 minutes.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Interview with OpenAI - Machine Learning Engineer",
+        "date": "Sep 7, 2025",
+        "from": "OpenAI Careers",
+        "to": "user@email.com",
+        "sender": "careers@openai.com",
+        "senderLogo": "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg"
+      },
+      "body": "Your interview with OpenAI is scheduled for September 20, 2025, at 9:30 AM. Duration: 75 minutes.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Interview with Microsoft - Cloud Solutions Engineer",
+        "date": "Mar 5, 2025",
+        "from": "Microsoft Careers",
+        "to": "user@email.com",
+        "sender": "careers@microsoft.com",
+        "senderLogo": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+      },
+      "body": "Your interview with Microsoft is scheduled for March 5, 2025, at 1:00 PM. Duration: 60 minutes.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "What You Need to Know About React 18 | Sheeraz Shaikh in JavaScript in Plain English",
+        "date": "Oct 16",
+        "from": "Medium Daily Digest",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": "https://cdn4.iconfinder.com/data/icons/social-media-circle-7/512/Medium_circle-512.png"
+      },
+      "body": "Here is a round-up of our stories for the month of June",
+      "status": "read",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "John Doe commented on your post",
+        "date": "Oct 16",
+        "from": "LinkedIn",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": "https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png"
+      },
+      "body": "Princewill Iroka here are your most recent notifications",
+      "status": "read",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Your Cloud Firestore database rules need to be updated",
+        "date": "Oct 16",
+        "from": "firebase-noreply",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": ""
+      },
+      "body": "Analysis is run daily. If you've modified your rules in the last 24 hours that may not be accounted for.",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "One week until Vercel's Next.js Conf",
+        "date": "Oct 16",
+        "from": "Vercel",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": ""
+      },
+      "body": "Join the Next.js Conf on June 15th for a special edition, presented by Vercel and Google Chrome, and including some incredible announcements and new features!",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Spring 2026 Graduates",
+        "date": "Oct 16",
+        "from": "University",
+        "to": "user@email.com",
+        "sender": "university@email.com",
+        "senderLogo": ""
+      },
+      "body": "Here is the list of students graduating from the math department in the Spring 2026 semester: Bob (bob@gmail.com), Carl (carl@gmail.com), Alice (alice@gmail.com), David (dave@gmail.com)",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "New jobs that match your saved search on Stack Overflow",
+        "date": "Oct 16",
+        "from": "Stack Overflow",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": ""
+      },
+      "body": "",
+      "status": "read",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "New jobs that match your saved search on Stack Overflow",
+        "date": "Oct 16",
+        "from": "Udacity",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Udacity_logo.png"
+      },
+      "body": "New jobs that match your saved search on Stack Overflow",
+      "status": "unread",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Learn Mobile UI/UX from Nike & Adobe Designer Jesse Showalter",
+        "date": "Oct 16",
+        "from": "Dribbble",
+        "to": "user@email.com",
+        "sender": "user@email.com",
+        "senderLogo": ""
+      },
+      "body": "Level-up your mobile app & interface skills in our new Dribbble Workshop",
+      "status": "read",
+      "attachments": []
+    },
+    {
+      "headers": {
+        "subject": "Christmas Party Today!",
+        "date": "Oct 16",
+        "from": "HR Department",
+        "to": "user@email.com",
+        "sender": "hr@company.com",
+        "senderLogo": ""
+      },
+      "body": "The annual Christmas party will start at 7:00 PM today. Don't forget to RSVP and join us for the fun!",
+      "status": "unread",
+      "attachments": []
+    }
+  ],
+  "activeTab": "Mail"
+}

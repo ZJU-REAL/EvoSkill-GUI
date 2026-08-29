@@ -1,0 +1,9 @@
+[submodule "resources/mall"]
+	path = resources/mall
+	url = https://github.com/qykong/mall_fork.git
+[submodule "resources/mail"]
+	path = resources/mail
+	url = https://github.com/nrgao/mail_fork.git
+[submodule "resources/mastodon-android"]
+	path = resources/mastodon-android
+	url = https://github.com/patdooog/mastodon-android.git

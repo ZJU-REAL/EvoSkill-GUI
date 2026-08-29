@@ -1,0 +1,75 @@
+# Python bytecode, caches, and environments
+__pycache__/
+*.py[cod]
+.cache/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pytype/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Packaging output
+.eggs/
+*.egg-info/
+build/
+dist/
+poetry.lock
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+!docker/mastodon-docker/.env.dev
+!docker/mattermost-docker/.env
+.sesskey
+
+# Editors and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.cursor/
+*.swp
+*~
+
+# Runtime output
+/artifacts/
+/logs/
+/screenshots/
+/test_logs*/
+/tmp/
+/traj_logs*/
+**/a11y_traces/
+**/_skills_store/
+*.log
+*.out
+nohup.out
+task_nohup.out
+
+# Working backups
+/task_backups/
+/.capability_reuse_backup/
+/.refine_p0_backup/
+/*_bk_/
+
+# Downloaded or unpacked emulator assets
+/apks/
+/unpackage/
+*.avd/
+*.avd*/
+*.tar
+/tools/a11y_tree_tool/a11y_forwarder.apk
+
+# Agent-specific local files
+/.claude/
+/CLAUDE.md
+/src/mobile_world/agents/implementations/assets/
+
+# Local-only task material retained by upstream developers
+/src/mobile_world/tasks/definitions/native/compress_year_images_ask_user.py
+/src/mobile_world/tasks/definitions/native/delete_low_res_screenshots_ask_user.py
+/tests/unit/tasks/test_compress_year_images_ask_user.py
+/tests/unit/tasks/test_delete_low_res_screenshots_ask_user.py
