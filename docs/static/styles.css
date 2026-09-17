@@ -150,16 +150,11 @@ svg {
   text-transform: uppercase;
 }
 
-.lab-glyph {
-  display: grid;
-  width: 30px;
-  height: 30px;
-  place-items: center;
-  color: var(--white);
-  background: var(--ink);
-  border-radius: 4px;
-  font-weight: 800;
-  line-height: 1;
+.lab-logo {
+  display: block;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
 }
 
 .nav-links {

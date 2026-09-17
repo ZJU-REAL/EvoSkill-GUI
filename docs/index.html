@@ -18,7 +18,7 @@
   <header class="site-header" data-header>
     <nav class="nav-shell" aria-label="Primary navigation">
       <a class="lab-mark" href="https://github.com/ZJU-REAL" target="_blank" rel="noreferrer" aria-label="ZJU REAL on GitHub">
-        <span class="lab-glyph" aria-hidden="true">R</span>
+        <img class="lab-logo" src="static/real-lab-logo.svg" alt="" width="34" height="34">
         <span><strong>ZJU REAL</strong><small>Research Lab</small></span>
       </a>
 
@@ -67,12 +67,12 @@
             <a href="https://openreview.net/profile?id=~Yongliang_Shen1" target="_blank" rel="noreferrer">Yongliang Shen</a><sup>&dagger;</sup>
           </p>
           <p class="affiliation">ZJU-REAL, Zhejiang University</p>
-          <p class="contribution-note"><sup>*</sup>Equal contribution, <sup>&dagger;</sup>Corresponding author &middot; Under review</p>
+          <p class="contribution-note"><sup>*</sup>Equal contribution, <sup>&dagger;</sup>Corresponding author &middot; <a href="https://arxiv.org/abs/2609.17653" target="_blank" rel="noreferrer">arXiv:2609.17653</a></p>
         </div>
         <div class="hero-actions" aria-label="Paper links">
-          <span class="button button-dark button-disabled" aria-disabled="true" title="arXiv link coming soon">
-            <i data-lucide="file-text" aria-hidden="true"></i> Paper <small>Coming soon</small>
-          </span>
+          <a class="button button-dark" href="https://arxiv.org/abs/2609.17653" target="_blank" rel="noreferrer">
+            <i data-lucide="file-text" aria-hidden="true"></i> Paper <small>arXiv</small>
+          </a>
           <a class="button button-outline" href="https://github.com/ZJU-REAL/EvoSkill-GUI" target="_blank" rel="noreferrer">
             <i data-lucide="github" aria-hidden="true"></i> Code
           </a>
@@ -364,19 +364,37 @@
         <div class="citation-copy reveal">
           <p class="section-kicker">06 / Citation</p>
           <h2 id="bibtex-title">Build on skills that keep learning.</h2>
-          <p>The repository will host code, prompts, evaluation scripts, and evolving skill packages upon release.</p>
+          <p>If EvoSkill-GUI helps your research, please cite our arXiv paper using the BibTeX entry.</p>
           <a class="button button-light" href="https://github.com/ZJU-REAL/EvoSkill-GUI" target="_blank" rel="noreferrer"><i data-lucide="github" aria-hidden="true"></i> View repository</a>
         </div>
         <div class="bibtex-box reveal" data-delay="1">
-          <div class="bibtex-bar"><span>BibTeX</span></div>
-          <pre aria-label="BibTeX placeholder"><code id="bibtex-code"></code></pre>
+          <div class="bibtex-bar">
+            <span>BibTeX</span>
+            <button class="icon-button" type="button" data-copy-bib aria-label="Copy BibTeX" title="Copy BibTeX">
+              <i data-lucide="copy" aria-hidden="true"></i>
+            </button>
+          </div>
+          <pre aria-label="BibTeX citation"><code id="bibtex-code">@misc{chen2026reflectrevisereusetrainingfree,
+  title         = {Reflect, Revise, Reuse:
+                   Training-Free Skill Evolution for GUI Agents},
+  author        = {Bofan Chen and Boxuan Zhang and Fei Tang and
+                   Zhengxi Lu and Yong Du and Tongbo Chen and
+                   Weiming Lu and Jun Xiao and Yueting Zhuang and
+                   Yongliang Shen},
+  year          = {2026},
+  eprint        = {2609.17653},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2609.17653}
+}</code></pre>
+          <span class="copy-status" data-copy-status aria-live="polite"></span>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div><a class="lab-mark footer-mark" href="https://github.com/ZJU-REAL" target="_blank" rel="noreferrer"><span class="lab-glyph" aria-hidden="true">R</span><span><strong>ZJU REAL</strong><small>Zhejiang University</small></span></a></div>
+    <div><a class="lab-mark footer-mark" href="https://github.com/ZJU-REAL" target="_blank" rel="noreferrer"><img class="lab-logo" src="static/real-lab-logo.svg" alt="" width="34" height="34"><span><strong>ZJU REAL</strong><small>Zhejiang University</small></span></a></div>
     <p>Reflect. Revise. Reuse.</p>
     <a class="icon-button" href="#main" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up" aria-hidden="true"></i></a>
   </footer>

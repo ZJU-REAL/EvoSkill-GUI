@@ -8,10 +8,10 @@
 Weiming Lu, Jun Xiao, Yueting Zhuang, Yongliang Shen<sup>&dagger;</sup>
 
 ZJU-REAL, Zhejiang University<br>
-<sup>\*</sup>Equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup>Corresponding author &nbsp;&middot;&nbsp; Under review
+<sup>\*</sup>Equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup>Corresponding author &nbsp;&middot;&nbsp; [arXiv:2609.17653](https://arxiv.org/abs/2609.17653)
 
 [![Project Page](https://img.shields.io/badge/Project-Page-1f6feb)](https://zju-real.github.io/EvoSkill-GUI/)
-![Paper](https://img.shields.io/badge/Paper-Coming%20Soon-lightgrey)
+[![Paper](https://img.shields.io/badge/Paper-arXiv%3A2609.17653-B31B1B?logo=arxiv)](https://arxiv.org/abs/2609.17653)
 [![Code](https://img.shields.io/badge/Code-GitHub-181717?logo=github)](https://github.com/ZJU-REAL/EvoSkill-GUI)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
@@ -276,16 +276,21 @@ See the scripts in [`scripts/`](scripts/) for the released model configurations.
 
 ## Citation
 
-The paper is currently under review. Please use the following temporary citation until the
-final publication record is available:
+If you find EvoSkill-GUI useful, please cite our paper:
 
 ```bibtex
-@misc{chen2026reflect,
-  title  = {Reflect, Revise, Reuse: Training-Free Skill Evolution for GUI Agents},
-  author = {Bofan Chen and Boxuan Zhang and Fei Tang and Zhengxi Lu and Yong Du and
-            Tongbo Chen and Weiming Lu and Jun Xiao and Yueting Zhuang and Yongliang Shen},
-  year   = {2026},
-  note   = {Under review}
+@misc{chen2026reflectrevisereusetrainingfree,
+  title         = {Reflect, Revise, Reuse:
+                   Training-Free Skill Evolution for GUI Agents},
+  author        = {Bofan Chen and Boxuan Zhang and Fei Tang and
+                   Zhengxi Lu and Yong Du and Tongbo Chen and
+                   Weiming Lu and Jun Xiao and Yueting Zhuang and
+                   Yongliang Shen},
+  year          = {2026},
+  eprint        = {2609.17653},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2609.17653}
 }
 ```
 
